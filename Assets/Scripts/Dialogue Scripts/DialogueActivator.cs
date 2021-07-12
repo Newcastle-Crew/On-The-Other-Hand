@@ -6,7 +6,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other) // Will make the dialogue box appear when you get close.
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerMovement player))
+        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerInteract player))
         {
             player.Interactable = this;
         }
@@ -14,7 +14,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     private void OnTriggerExit(Collider other) // Will make the dialogue box disappear when you go away.
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerMovement player))
+        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerInteract player))
         {
             if(player.Interactable is DialogueActivator dialogueActivator && dialogueActivator == this)
             {
@@ -23,7 +23,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         }
     }
 
-    public void Interact(PlayerMovement player) 
+    public void Interact(PlayerInteract player) 
     {
         player.DialogueUI.ShowDialogue(dialogueObject);
     }
