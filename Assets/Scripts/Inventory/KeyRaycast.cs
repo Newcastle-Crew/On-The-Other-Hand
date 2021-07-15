@@ -19,6 +19,11 @@ namespace KeySystem
 
         private string interactableTag = "InteractiveObject";
 
+        private void Start() 
+        {      
+            crosshair.color = Color.clear;
+        }
+
         private void Update() 
         {
             RaycastHit hit;
@@ -59,11 +64,11 @@ namespace KeySystem
         {
             if (on && !doOnce)
             {
-                crosshair.color = Color.red; // Makes the crosshair red when it's over something it can itneract with.
+                crosshair.color = Color.white; // Makes the crosshair appear when it's over something it can itneract with.
             }
             else
             {
-                crosshair.color = Color.white; // Otherwise, makes the crosshair white.
+                crosshair.color = Color.clear; // Otherwise, makes the crosshair invisible.
                 isCrosshairActive = false;
             }
         }
