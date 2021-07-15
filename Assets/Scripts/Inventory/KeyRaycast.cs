@@ -12,8 +12,8 @@ namespace KeySystem
         [SerializeField] private string excludeLayerName = null;
 
         private KeyItemController raycastedObject;
-        [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0; // Will open doors with a right click.
-        [SerializeField] private Image crosshair = null;
+        [SerializeField] private KeyCode openDoorKey = KeyCode.E; // Will open doors with the E key.
+        [SerializeField] private Image crosshair = null; // Allows the crosshair image to be added.
         private bool isCrosshairActive;
         private bool doOnce;
 
@@ -21,7 +21,7 @@ namespace KeySystem
 
         private void Start() 
         {      
-            crosshair.color = Color.clear;
+            crosshair.color = Color.clear; // Stops the crosshair from appearing when it shouldn't by making it invisible as the game starts.
         }
 
         private void Update() 
