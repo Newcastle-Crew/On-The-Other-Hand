@@ -8,6 +8,9 @@ namespace KeySystem
     {
         [SerializeField] private bool redDoor = false;
         [SerializeField] private bool redKey = false;
+
+        [SerializeField] private bool blueDoor = false;
+        [SerializeField] private bool blueKey = false;
         [SerializeField] private KeyInventory _keyInventory = null;
 
         private KeyDoorController doorObject;
@@ -19,6 +22,10 @@ namespace KeySystem
                 doorObject = GetComponent<KeyDoorController>();
             }
 
+            if (blueDoor)
+            {
+                doorObject = GetComponent<KeyDoorController>();
+            }
         }
 
         public void ObjectInteraction()
@@ -28,12 +35,23 @@ namespace KeySystem
                 doorObject.PlayAnimation(); // If the player has the key and interacts with the door, it opens and plays the animation.
             }
 
-            else if (redKey) // if the player interacts with the key, it is added to their inventory.
+            else if (blueDoor)
             {
-                _keyInventory.hasRedkey = true;
+                doorObject.PlayAnimation(); // If the player has the key and interacts with the door, it opens and plays the animation.
+            }
+
+            else if (redKey) // if the player interacts with a RED key, it is added to their inventory.
+            {
+                _keyInventory.hasRedKey = true;
                 gameObject.SetActive(false);
             }
-        }     
+
+            else if (blueKey) // If the player interacts with a BLUE key, it is added to their inventory.
+            {
+                _keyInventory.hasBlueKey = true;
+                gameObject.SetActive(false);
+            }
+        }    
     }
 
 }

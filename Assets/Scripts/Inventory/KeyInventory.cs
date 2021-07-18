@@ -7,7 +7,8 @@ namespace KeySystem
 {
         public class KeyInventory : MonoBehaviour
         {
-            public bool hasRedkey = false;
+            public bool hasRedKey = false;
+            public bool hasBlueKey = false;
         }
 }
 
