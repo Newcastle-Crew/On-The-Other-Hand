@@ -9,8 +9,7 @@ public class PlayerInteract : MonoBehaviour
 
     public DialogueUI DialogueUI => dialogueUI;
 
-    public IInteractable Interactable {get; set;
-    }
+    public IInteractable Interactable { get; set; }
     #endregion
     
     #region Health Variables
@@ -30,7 +29,9 @@ public class PlayerInteract : MonoBehaviour
     }
 
     private void Update()
-    {             
+    {   
+        if (dialogueUI.IsOpen) return; // Stops the player from spamming extra dialogue boxes while the dialogue box is appearing.
+
         if (Input.GetKeyDown(KeyCode.E)) // If the player presses E and the object can be interacted with, interact with it.
         {
             Interactable?.Interact(player:this);
