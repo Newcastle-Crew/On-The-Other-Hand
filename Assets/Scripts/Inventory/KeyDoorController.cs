@@ -12,6 +12,9 @@ namespace KeySystem
         [SerializeField] private string openAnimationName = "DoorOpen";
         [SerializeField] private string closeAnimationName = "DoorClose";
 
+        [SerializeField] private bool redDoor = false;
+        [SerializeField] private bool blueDoor = false;
+
         [SerializeField] private int timeToShowUI = 1;
         [SerializeField] private GameObject showDoorLockedUI = null;
 
@@ -34,7 +37,24 @@ namespace KeySystem
 
         public void PlayAnimation()
         {
-            if (_keyInventory.hasRedkey) // If the player has the red key...
+            if (redDoor == true && _keyInventory.hasRedKey) // If the player has the RED key...
+            {
+                OpenDoor(); // Open the door.
+            }
+
+            else if (blueDoor == true && _keyInventory.hasBlueKey) // If the player has the BLUE key...
+            {
+                OpenDoor(); // Open the door.
+            }
+
+            else
+            {
+                StartCoroutine(ShowDoorLocked());
+            }
+        }
+
+        void OpenDoor()
+        {
             {
                 if(!doorOpen && !pauseInteraction) // If the door isn't open and interaction isn't paused...
                 {
@@ -49,11 +69,6 @@ namespace KeySystem
                     doorOpen = false;
                     StartCoroutine(PauseDoorInteraction());
                 }
-            }
-
-            else
-            {
-                StartCoroutine(ShowDoorLocked());
             }
         }
 
