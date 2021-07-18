@@ -271,9 +271,6 @@ Transform:
   - {fileID: 176270559666038796}
   - {fileID: 289439054}
   - {fileID: 889111405}
-  - {fileID: 702423591}
-  - {fileID: 501105305}
-  - {fileID: 1453795265}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1443,12 +1440,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265652284}
   m_LocalRotation: {x: 0.000000029802322, y: 0.9099791, z: -0.000000059604645, w: 0.41465414}
-  m_LocalPosition: {x: -7.859024, y: 2.1000001, z: -2.4826689}
+  m_LocalPosition: {x: -1.0710258, y: 0.9670001, z: -1.1846695}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 805510336}
-  m_Father: {fileID: 718203118}
-  m_RootOrder: 1
+  m_Father: {fileID: 1684030573}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &265652286
 MonoBehaviour:
@@ -2460,7 +2457,7 @@ GameObject:
   - component: {fileID: 501105305}
   - component: {fileID: 501105306}
   m_Layer: 0
-  m_Name: Right Light (3)
+  m_Name: Puzzle room 2 light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2473,12 +2470,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501105304}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.73, y: 3.64, z: -33.02}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.16035461, y: -0.052298784, z: -1.6499996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22067106}
-  m_RootOrder: 9
+  m_Father: {fileID: 687837357}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &501105306
 Light:
@@ -2954,8 +2951,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 261727522}
+  - {fileID: 501105305}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &688310658
 PrefabInstance:
@@ -2974,7 +2972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4448068258976056, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.51
+      value: -47.5
       objectReference: {fileID: 0}
     - target: {fileID: 4448068258976056, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2982,7 +2980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4448068258976056, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.17
+      value: -18.35
       objectReference: {fileID: 0}
     - target: {fileID: 4448068258976056, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3209,7 +3207,7 @@ GameObject:
   - component: {fileID: 692488380}
   - component: {fileID: 692488379}
   m_Layer: 0
-  m_Name: RightofSingleDoor
+  m_Name: WallRightofSingleDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3319,7 +3317,7 @@ GameObject:
   - component: {fileID: 702423591}
   - component: {fileID: 702423592}
   m_Layer: 0
-  m_Name: Right Light (2)
+  m_Name: Puzzle room 1 light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3332,12 +3330,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702423590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.21, y: 3.64, z: -12.38}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.3099976, y: 12.045592, z: -1.5799999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22067106}
-  m_RootOrder: 8
+  m_Father: {fileID: 1012652468}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &702423592
 Light:
@@ -3560,8 +3558,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1434037173}
-  - {fileID: 265652285}
-  - {fileID: 6176454382114122780}
+  - {fileID: 1453795265}
+  - {fileID: 1684030573}
   - {fileID: 344625234}
   - {fileID: 1940020959}
   - {fileID: 1295468359}
@@ -4250,7 +4248,7 @@ GameObject:
   - component: {fileID: 889111405}
   - component: {fileID: 889111406}
   m_Layer: 0
-  m_Name: Right Light (1)
+  m_Name: Spotlight facing stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4698,8 +4696,9 @@ Transform:
   m_Children:
   - {fileID: 1197817212}
   - {fileID: 972423054}
+  - {fileID: 702423591}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1029910721
 GameObject:
@@ -5840,7 +5839,7 @@ GameObject:
   - component: {fileID: 1295468361}
   - component: {fileID: 1295468360}
   m_Layer: 0
-  m_Name: LeftofSingleDoor
+  m_Name: WallLeftofSingleDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6518,7 +6517,7 @@ GameObject:
   - component: {fileID: 1433013066}
   - component: {fileID: 1433013065}
   m_Layer: 0
-  m_Name: AboveSingleDoor
+  m_Name: WallAboveSingleDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6841,7 +6840,7 @@ GameObject:
   - component: {fileID: 1453795265}
   - component: {fileID: 1453795266}
   m_Layer: 0
-  m_Name: Right Light (4)
+  m_Name: Corridor light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6854,12 +6853,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453795264}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.39, y: 3.64, z: -20.91}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.279999, y: 3.64, z: -5.0999994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22067106}
-  m_RootOrder: 10
+  m_Father: {fileID: 718203118}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1453795266
 Light:
@@ -7168,6 +7167,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648170709}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1684030572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1684030573}
+  m_Layer: 0
+  m_Name: DoubleDoors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1684030573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684030572}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.787998, y: 1.133, z: -1.2979994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 265652285}
+  - {fileID: 6176454382114122780}
+  m_Father: {fileID: 718203118}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724917110
 GameObject:
   m_ObjectHideFlags: 0
@@ -7802,7 +7833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860241310}
   m_LocalRotation: {x: 0.22565754, y: 0.22565742, z: -0.67013323, w: -0.6701335}
-  m_LocalPosition: {x: -72.5, y: -29.6, z: 44.78}
+  m_LocalPosition: {x: -136.8, y: -34.72, z: -58.1}
   m_LocalScale: {x: 5.9096828, y: 98.31121, z: 140.4446}
   m_Children: []
   m_Father: {fileID: 176270559666038796}
@@ -9502,12 +9533,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6176454382114122779}
   m_LocalRotation: {x: 0.000000029802322, y: 0.9099791, z: -0.000000059604645, w: 0.41465414}
-  m_LocalPosition: {x: -5.76, y: 2.1, z: -0.0646286}
+  m_LocalPosition: {x: 1.0279961, y: 0.9669999, z: 1.2333708}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 545554294}
-  m_Father: {fileID: 718203118}
-  m_RootOrder: 2
+  m_Father: {fileID: 1684030573}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6176454382114122781
 Animator:
