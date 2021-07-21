@@ -10,7 +10,9 @@ public class PlayerHealth : MonoBehaviour
     #region Health Variables
 
     public HealthBar healthBar; // Health bar UI.
-    public TakeBlood syringed; // Healing mechanic - checks to see if the player's taken the syringe.
+    public HealItemController firstjab; // Healing mechanic - checks to see if the player's taken the syringe.
+    public HealItemController secondjab;
+    public HealItemController thirdjab;
 
     public int maxHealth = 480; // Maximum health - actual value set inside the inspector.
     public int currentHealth; // Current health. Used in this class to determine how much damage you've taken and keep the bar's UI accurate.
@@ -56,11 +58,11 @@ public class PlayerHealth : MonoBehaviour
 
     void Update() // Update is called once per frame
     {
-        if (syringed.StabbyStab == true) // Keeps an eye out for the player using a syringe.
+        if (firstjab.Healing == true || secondjab.Healing == true || thirdjab.Healing == true) // Keeps an eye out for the player using a syringe.
         {
             currentHealth = maxHealth; // Sets the player's current health to maximum.
             healthBar.SetHealth(currentHealth); // Lets the health bar sprite know that the player's health is beefed up.
-            syringed.StabbyStab = false; // Disables the healing so that it only happens once.
+            firstjab.Healing = false; // Disables the healing after a second or so.
         }
     }
 

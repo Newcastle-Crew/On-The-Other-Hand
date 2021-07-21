@@ -23,9 +23,12 @@ namespace KeySystem
         [SerializeField] private int waitTimer = 1; // Gives a 1-second timer between showing the "LOCKED" message.
         [SerializeField] private bool pauseInteraction = false; // Stops the player from spamming interaction.
 
+        [SerializeField] private AudioSource creakopen;
+
         private void Awake() 
         {
             doorAnim = gameObject.GetComponent<Animator>();
+            creakopen = GetComponent<AudioSource>();
         }
 
         private IEnumerator PauseDoorInteraction()
