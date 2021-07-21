@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HandScanner : MonoBehaviour
 {
+
+    [SerializeField] private AudioSource Negative;
     // Start is called before the first frame update
     void Start()
     {

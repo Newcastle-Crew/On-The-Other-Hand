@@ -11,6 +11,8 @@ namespace Health
         [SerializeField] private bool Syringe3 = false;
 
         public bool Healing = false; // Healing mechanic - tells the PlayerHealth class when to run the RestoreHealth method.
+        public bool victimPain = false;
+
         private float waitTimer = 0.1f; // Gives a 0.5-second timer to stop the player from spamming syringes.
         public BoxCollider boxCollider;
         public MeshRenderer mesh;
@@ -22,8 +24,11 @@ namespace Health
             if (Syringe1 || Syringe2) // If the player has interacted with the syringe, run this code.
             {
                 SyringesUsed++;
+                victimPain = true; // Sends a signal to play the 'oof' sound.
+
                 boxCollider.enabled = false; // removes the ability to interact with the syringe
-                mesh.enabled = false;
+                mesh.enabled = false; // Makes the needle invisible.
+
                 StartCoroutine(HealMe()); // Starts a coroutine that heals the player.          
             }
             
@@ -31,6 +36,8 @@ namespace Health
             {
                 if (SyringesUsed >= 2)
                 {
+                    victimPain = true;
+                    
                     StartCoroutine(HealMe());
                 } 
             }
@@ -40,9 +47,11 @@ namespace Health
     {
         Healing = true; // Starts healing the player
         yield return new WaitForSeconds(waitTimer); // Waits a second
+        Healing = false;
 
         if (SyringesUsed >= 2)
         {
+            Healing = true;
             Healing = false;
             gameObject.SetActive(false); // Destroys the needle object.
         }

@@ -24,11 +24,15 @@ namespace KeySystem
         [SerializeField] private bool pauseInteraction = false; // Stops the player from spamming interaction.
 
         [SerializeField] private AudioSource creakopen;
+        [SerializeField] private AudioSource itislocked;
+        [SerializeField] private AudioSource closing;
 
         private void Awake() 
         {
             doorAnim = gameObject.GetComponent<Animator>();
             creakopen = GetComponent<AudioSource>();
+            itislocked = GetComponent<AudioSource>();
+            closing = GetComponent<AudioSource>();
         }
 
         private IEnumerator PauseDoorInteraction()
@@ -63,6 +67,7 @@ namespace KeySystem
                 {
                     doorAnim.Play(openAnimationName, 0, 0.0f);
                     doorOpen = true; // Opens the door.
+                    creakopen.Play(); // Plays the 'creaking door' sound effect.
                     StartCoroutine(PauseDoorInteraction()); // Stops the player from spamming the door.
                 }
 
