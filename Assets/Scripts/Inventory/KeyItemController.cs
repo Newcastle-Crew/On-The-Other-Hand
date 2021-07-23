@@ -12,6 +12,8 @@ namespace KeySystem
         [SerializeField] private bool blueKey = false;
         [SerializeField] private KeyInventory _keyInventory = null;
 
+        public bool Collected = false;
+
         private KeyDoorController doorObject;
 
         private void Start() 
@@ -20,7 +22,6 @@ namespace KeySystem
             {
                 doorObject = GetComponent<KeyDoorController>();
             }
-
         }
 
         public void ObjectInteraction()
@@ -32,16 +33,24 @@ namespace KeySystem
 
             else if (redKey) // if the player interacts with the key, it is added to their inventory.
             {
+                StartCoroutine(MakeaSwoosh());
                 _keyInventory.hasRedKey = true;
                 gameObject.SetActive(false);
             }
 
             else if (blueKey)
             {
+                StartCoroutine(MakeaSwoosh());
                 _keyInventory.hasBlueKey = true;
                 gameObject.SetActive(false);
             }
-        }     
+        } 
+
+        private IEnumerator MakeaSwoosh()
+        {
+            yield return Collected = true;
+            Collected = true;
+        }
     }
 
 }

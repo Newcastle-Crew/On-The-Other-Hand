@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 471f8f5ce80ee834fa19fa638590b5c8, type: 3}
-  m_Name: DissectionRoom
+  m_Name: MeltingHeadRoom
   m_EditorClassIdentifier: 
   dialogue:
-  - 'It''s time to get your hands-
+  - 'Ouch, what a headache!
 
-    Er, hand, dirty.'
-  - 'I had a wonderful childhood...
+    I bet you''re glad I only took your fingers now!
 
-    Can you bring my dreams to life?'
+    HAHAHAHA!'
+  - "Speaking of fingers... \nOne of yours is in his mouth.\nDid I mention that the
+    box is full of acid?"

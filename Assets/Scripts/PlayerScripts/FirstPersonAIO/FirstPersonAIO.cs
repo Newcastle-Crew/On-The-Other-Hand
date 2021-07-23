@@ -243,8 +243,16 @@ public class FirstPersonAIO : MonoBehaviour {
                 StaminaMeter.color = new Color(0,0,0,0);
             }
         }
+        
         cameraStartingPosition = playerCamera.transform.localPosition;
-        if(lockAndHideCursor) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; }
+
+
+        if(lockAndHideCursor)
+        { 
+            Cursor.lockState = CursorLockMode.Locked; 
+            Cursor.visible = false; 
+        }
+
         baseCamFOV = playerCamera.fieldOfView;
         #endregion
 
@@ -307,12 +315,11 @@ public class FirstPersonAIO : MonoBehaviour {
         }else if(Input.GetButtonUp("Jump")){jumpInput = false;}
         
         
-        if(_crouchModifiers.useCrouch){
+        if(_crouchModifiers.useCrouch)
+        {
             if(!_crouchModifiers.toggleCrouch){ isCrouching = _crouchModifiers.crouchOverride || Input.GetKey(_crouchModifiers.crouchKey);}
             else if(Input.GetKeyDown(_crouchModifiers.crouchKey)){isCrouching = !isCrouching || _crouchModifiers.crouchOverride;}
-            }
-
-        if(Input.GetButtonDown("Cancel")){ControllerPause();}
+        }
         #endregion
 
         #region Movement Settings - Update
@@ -657,13 +664,7 @@ public class FirstPersonAIO : MonoBehaviour {
         enableCameraMovement = !enableCameraMovement;
     }
 
-    public void ControllerPause(){
-        controllerPauseState = !controllerPauseState;
-        if(lockAndHideCursor){
-            Cursor.lockState = controllerPauseState? CursorLockMode.None : CursorLockMode.Locked;
-            Cursor.visible = controllerPauseState;
-        }
-    }
+
 
 
 

@@ -4,25 +4,36 @@ using UnityEngine;
 
 public class ShowUI : MonoBehaviour
 {
-    [SerializeField] private DialogueObject dialogueObject;
+    [SerializeField] public Canvas dissectionCanvas; // Requires a canvas to work, so drag one into the inspector.
 
-    private void OnTriggerEnter(Collider other) // Will make the dialogue box appear when you get close.
-    {
-    }
+    public IInteractable Interactable { get; set; }
 
-    private void OnTriggerExit(Collider other) // Will make the dialogue box disappear when you go away.
+    
+
+    private void Update() 
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerInteract player))
+        if(Input.GetKeyDown(KeyCode.G))
         {
-            if(player.Interactable is DialogueActivator dialogueActivator && dialogueActivator == this)
-            {
-                player.Interactable = null;
-            }
+            ShowDissectionUI(); // Runs the 'ShowDissectionUI' void.
+        }
+
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            ExitPuzzle(); // Runs the 'ExitPuzzle' void.
         }
     }
 
-    public void Interact(PlayerInteract player) 
+    void ShowDissectionUI() 
     {
-        player.DialogueUI.ShowDialogue(dialogueObject);
+        dissectionCanvas.gameObject.SetActive(true); // Shows the dissection puzzle.
+        Cursor.visible = true; // Makes the cursor visible.
+        Cursor.lockState = CursorLockMode.None; // Allows the player to move their cursor around and click freely.
+    }
+
+    void ExitPuzzle()
+    {
+        dissectionCanvas.gameObject.SetActive(false); // Hides the dissection puzzle.
+        Cursor.visible = false; // Makes the cursor invisible.
+        Cursor.lockState = CursorLockMode.Locked; // Stops the player from moving their cursor around and clicking freely.
     }
 }

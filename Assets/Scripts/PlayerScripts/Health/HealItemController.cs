@@ -11,7 +11,9 @@ namespace Health
         [SerializeField] private bool Syringe3 = false;
 
         public bool Healing = false; // Healing mechanic - tells the PlayerHealth class when to run the RestoreHealth method.
-        public bool victimPain = false;
+
+        public bool victimPain = false; // The bool that will make the pain audio play.
+        public bool victimDie = false; // The bool that will make the death audio play.
 
         private float waitTimer = 0.1f; // Gives a 0.5-second timer to stop the player from spamming syringes.
         public BoxCollider boxCollider;
@@ -24,7 +26,7 @@ namespace Health
             if (Syringe1 || Syringe2) // If the player has interacted with the syringe, run this code.
             {
                 SyringesUsed++;
-                victimPain = true; // Sends a signal to play the 'oof' sound.
+                victimPain = true; // Sends a signal to play the 'pain' sound.
 
                 boxCollider.enabled = false; // removes the ability to interact with the syringe
                 mesh.enabled = false; // Makes the needle invisible.
@@ -36,7 +38,7 @@ namespace Health
             {
                 if (SyringesUsed >= 2)
                 {
-                    victimPain = true;
+                    victimDie = true; // Sends a signal to play the 'death' sound.
                     
                     StartCoroutine(HealMe());
                 } 
@@ -44,17 +46,17 @@ namespace Health
         }
 
         private IEnumerator HealMe()
-    {
+        {
         Healing = true; // Starts healing the player
         yield return new WaitForSeconds(waitTimer); // Waits a second
         Healing = false;
 
-        if (SyringesUsed >= 2)
-        {
-            Healing = true;
-            Healing = false;
-            gameObject.SetActive(false); // Destroys the needle object.
-        }
+            if (SyringesUsed >= 2)
+            {
+                Healing = true;
+                Healing = false;
+                gameObject.SetActive(false); // Destroys the needle object.
+            }
         
     }
 
