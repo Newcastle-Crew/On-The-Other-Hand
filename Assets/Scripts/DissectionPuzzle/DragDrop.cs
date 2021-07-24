@@ -7,10 +7,19 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 {
     [SerializeField] private Canvas canvas;
 
+    #region animal parts booleans
+    [SerializeField] public bool frogHead = false;
+    [SerializeField] public bool frogLegs = false;
+
+    [SerializeField] public bool birdHead = false;
+    [SerializeField] public bool birdLegs = false;
+
+    [SerializeField] public bool fishHead = false;
+    [SerializeField] public bool fishLegs = false;
+    #endregion
+
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-
-
 
     private void Awake()
     {
@@ -20,27 +29,23 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
         canvasGroup.alpha = .8f; // Makes the item slightly transparent when it's being moved.
         canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor; // Keeps the item as close to the mouse as possible.
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-         Debug.Log("OnEndDrag");
          canvasGroup.alpha = 1f; // Restores the image's regular transparency.
          canvasGroup.blocksRaycasts = true;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
     }
 
     public void OnDrop(PointerEventData eventData)

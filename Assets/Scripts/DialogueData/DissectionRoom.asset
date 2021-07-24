@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: DissectionRoom
   m_EditorClassIdentifier: 
   dialogue:
-  - 'It''s time to get your hands-
+  - "I hope you don't mind getting your hands-\ner, hand, dirty. \nFingerless gloves
+    were out of stock.\nHAHAHAHAHA!"
+  - 'Hee hee... Anyway. As you can see on the board, I had a wonderful childhood...
 
-    Er, hand, dirty.'
-  - 'I had a wonderful childhood...
-
-    Can you bring my dreams to life?'
+    Can
+    you bring my dreams to life?'
