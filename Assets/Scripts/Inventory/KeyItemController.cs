@@ -8,8 +8,11 @@ namespace KeySystem
     {
         [SerializeField] private bool redDoor = false;
         [SerializeField] private bool blueDoor = false;
+        [SerializeField] private bool boxDoor = false;
+
         [SerializeField] private bool redKey = false;
         [SerializeField] private bool blueKey = false;
+
         [SerializeField] private KeyInventory _keyInventory = null;
 
         public bool Collected = false;
@@ -18,7 +21,7 @@ namespace KeySystem
 
         private void Start() 
         {
-            if (redDoor || blueDoor)
+            if (redDoor || blueDoor || boxDoor)
             {
                 doorObject = GetComponent<KeyDoorController>();
             }
@@ -29,6 +32,11 @@ namespace KeySystem
             if (redDoor || blueDoor)
             {
                 doorObject.PlayAnimation(); // If the player has the key and interacts with the door, it opens and plays the animation.
+            }
+
+            if (boxDoor)
+            {
+                doorObject.DestroyDoor();
             }
 
             else if (redKey) // if the player interacts with the key, it is added to their inventory.

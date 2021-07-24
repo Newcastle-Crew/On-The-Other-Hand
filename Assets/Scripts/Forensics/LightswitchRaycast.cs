@@ -54,11 +54,11 @@ public class LightswitchRaycast : MonoBehaviour
     {
         if(on)
         {
-            crosshair.color = Color.clear;
+            crosshair.color = Color.white;
         }
         else
         {
-            crosshair.color = Color.white;
+            crosshair.color = Color.clear;
         }
     }
 }

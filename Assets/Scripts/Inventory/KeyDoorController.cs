@@ -14,6 +14,7 @@ namespace KeySystem
 
         [SerializeField] private bool redDoor = false;
         [SerializeField] private bool blueDoor = false;
+        [SerializeField] private bool boxDoor = false;
 
         [SerializeField] private int timeToShowUI = 1;
         [SerializeField] private GameObject showDoorLockedUI = null;
@@ -54,6 +55,11 @@ namespace KeySystem
                 OpenDoor(); // Open the door.
             }
 
+            else if (boxDoor == true && _keyInventory.hasRedKey)
+            {
+                DestroyDoor();
+            }
+
             else
             {
                 StartCoroutine(ShowDoorLocked());
@@ -78,6 +84,11 @@ namespace KeySystem
                     StartCoroutine(PauseDoorInteraction());
                 }
             }
+        }
+
+        public void DestroyDoor()
+        {
+            gameObject.SetActive(false);
         }
 
         IEnumerator ShowDoorLocked()
