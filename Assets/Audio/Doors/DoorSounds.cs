@@ -50,20 +50,26 @@ namespace KeySystem
             myAudioSource1.Play();
         }
 
-        else if (doorOpening.doorOpen)
+        else if (doorOpening.doorClosing)
+        {
+            myAudioSource2.clip = closeDoorSound; // Plays the dying sound effect, but only for syringe 3.
+            myAudioSource2.Play();
+        }
+
+        else if (doorOpening.doorRattle)
         {
             myAudioSource2.clip = closeDoorSound; // Plays the dying sound effect, but only for syringe 3.
             myAudioSource2.Play();
         }
 
         doorOpening.doorOpen = false; // Stops the sound effect from repeating.
-        doorClosing.doorOpen = false; // Stops the sound effect from repeating.
-        doorLocked.doorOpen = false; // Stops the sound effect from repeating.
+        doorClosing.doorClosing = false; // Stops the sound effect from repeating.
+        doorLocked.doorRattle = false; // Stops the sound effect from repeating.
     }
     
     void Update() // Update is called once per frame
     {
-        if (doorOpening.doorOpen || doorClosing.doorOpen || doorLocked.doorOpen)
+        if (doorOpening.doorOpen || doorClosing.doorClosing || doorLocked.doorRattle)
         {
             StartPlayingSounds();
         }
