@@ -5,7 +5,7 @@ using TMPro;
 
 public class TypewriterEffect : MonoBehaviour
 {
-    [SerializeField] private float typewriterSpeed = 16f; // The speed at which the text appears; tweakable in the inspector.
+    [SerializeField] private float typewriterSpeed = 40f; // The speed at which the text appears; tweakable in the inspector.
 
     private readonly Dictionary<HashSet<char>, float> punctuations = new Dictionary<HashSet<char>, float>() // Will make text pause when certain punctuation appears in-text.
     {
