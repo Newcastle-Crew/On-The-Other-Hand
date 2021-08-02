@@ -8,9 +8,13 @@ namespace KeySystem
     {
         private Animator doorAnim;
 <<<<<<< HEAD
+<<<<<<< HEAD
         public bool doorOpen = false;
         public bool doorClosing = false;
         public bool doorRattle = false;
+=======
+        private bool doorOpen = false;
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
         private bool doorOpen = false;
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
@@ -38,6 +42,9 @@ namespace KeySystem
         [SerializeField] private AudioSource creakopen;
         [SerializeField] private AudioSource itislocked;
         [SerializeField] private AudioSource closing;
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 
         private void Awake() 
@@ -49,6 +56,9 @@ namespace KeySystem
             creakopen = GetComponent<AudioSource>();
             itislocked = GetComponent<AudioSource>();
             closing = GetComponent<AudioSource>();
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
         }
 

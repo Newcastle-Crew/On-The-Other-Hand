@@ -2,6 +2,9 @@ Base path: 'C:/Program Files/Unity/Hub/Editor/2021.1.10f1/Editor/Data', plugins 
 Cmd: initializeCompiler
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Cmd: shutdown
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)

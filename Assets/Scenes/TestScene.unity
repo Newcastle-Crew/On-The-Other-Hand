@@ -1477,9 +1477,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: DoorOpen
@@ -1500,6 +1503,9 @@ MonoBehaviour:
   creakopen: {fileID: 0}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!23 &101951628
 MeshRenderer:
@@ -3839,9 +3845,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: LeftDoorOpen
@@ -3862,6 +3871,9 @@ MonoBehaviour:
   creakopen: {fileID: 265652291}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!65 &265652289
 BoxCollider:
@@ -5132,9 +5144,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: DoorOpen
@@ -5155,6 +5170,9 @@ MonoBehaviour:
   creakopen: {fileID: 0}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!23 &328820769
 MeshRenderer:
@@ -9380,9 +9398,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: DoorOpen
@@ -9403,6 +9424,9 @@ MonoBehaviour:
   creakopen: {fileID: 666994711}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!65 &666994715
 BoxCollider:
@@ -12196,9 +12220,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: DoorOpen
@@ -12219,6 +12246,9 @@ MonoBehaviour:
   creakopen: {fileID: 846530988}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!65 &846530992
 BoxCollider:
@@ -18014,9 +18044,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: DoorOpen
@@ -18037,6 +18070,9 @@ MonoBehaviour:
   creakopen: {fileID: 1438091237}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!65 &1438091235
 BoxCollider:
@@ -18347,9 +18383,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: DoorOpen
@@ -18370,6 +18409,9 @@ MonoBehaviour:
   creakopen: {fileID: 1448812816}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!65 &1448812814
 BoxCollider:
@@ -23662,9 +23704,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: LeftDoorOpen
@@ -23685,6 +23730,9 @@ MonoBehaviour:
   creakopen: {fileID: 1808151460}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!65 &1808151458
 BoxCollider:
@@ -32599,9 +32647,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: DoorOpen
@@ -32622,6 +32673,9 @@ MonoBehaviour:
   creakopen: {fileID: 6176454382114122784}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!65 &6176454382114122769
 BoxCollider:
@@ -32888,11 +32942,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
   openAnimationName: BoxDoorOpen
   closeAnimationName: BoxDoorClose
+=======
+  openAnimationName: DoorOpen
+  closeAnimationName: DoorClose
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
@@ -32913,6 +32972,9 @@ MonoBehaviour:
   creakopen: {fileID: 0}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!65 &6237775334789465329
 BoxCollider:
@@ -33528,9 +33590,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   doorOpen: 0
   doorClosing: 0
   doorRattle: 0
+=======
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 =======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
   openAnimationName: DoorOpen
@@ -33551,6 +33616,9 @@ MonoBehaviour:
   creakopen: {fileID: 6876618072584796250}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+=======
 >>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 --- !u!65 &6876618072584796243
 BoxCollider:
