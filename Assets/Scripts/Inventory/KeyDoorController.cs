@@ -7,25 +7,10 @@ namespace KeySystem
     public class KeyDoorController : MonoBehaviour
     {
         private Animator doorAnim;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         public bool doorOpen = false;
         public bool doorClosing = false;
         public bool doorRattle = false;
-=======
-        private bool doorOpen = false;
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
-=======
-        private bool doorOpen = false;
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
-=======
-        private bool doorOpen = false;
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
-=======
-        private bool doorOpen = false;
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 
         [SerializeField] private string openAnimationName = "DoorOpen";
         [SerializeField] private string closeAnimationName = "DoorClose";
@@ -42,44 +27,25 @@ namespace KeySystem
         [SerializeField] private int waitTimer = 1; // Gives a 1-second timer between showing the "LOCKED" message.
         [SerializeField] private bool pauseInteraction = false; // Stops the player from spamming interaction.
 
-<<<<<<< HEAD
+
         [SerializeField] private AudioSource doorOpeningSound;
         [SerializeField] private AudioSource doorClosingSound;
         [SerializeField] private AudioSource doorLockedSound;
-=======
+
         [SerializeField] private AudioSource creakopen;
         [SerializeField] private AudioSource itislocked;
         [SerializeField] private AudioSource closing;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
-=======
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
-=======
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
-=======
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
 
         private void Awake() 
         {
             doorAnim = gameObject.GetComponent<Animator>();
-<<<<<<< HEAD
+
             doorOpeningSound = GetComponent<AudioSource>();
-=======
+
             creakopen = GetComponent<AudioSource>();
             itislocked = GetComponent<AudioSource>();
             closing = GetComponent<AudioSource>();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
-=======
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
-=======
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
-=======
->>>>>>> parent of 6e52bd0 (Tweaks pt. 2)
+
         }
 
         private IEnumerator PauseDoorInteraction()
