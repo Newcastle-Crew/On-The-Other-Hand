@@ -7,7 +7,7 @@ namespace KeySystem
     public class KeyDoorController : MonoBehaviour
     {
         private Animator doorAnim;
-        public bool doorOpen = false;
+        private bool doorOpen = false;
 
         [SerializeField] private string openAnimationName = "DoorOpen";
         [SerializeField] private string closeAnimationName = "DoorClose";
@@ -25,11 +25,15 @@ namespace KeySystem
         [SerializeField] private bool pauseInteraction = false; // Stops the player from spamming interaction.
 
         [SerializeField] private AudioSource creakopen;
+        [SerializeField] private AudioSource itislocked;
+        [SerializeField] private AudioSource closing;
 
         private void Awake() 
         {
             doorAnim = gameObject.GetComponent<Animator>();
             creakopen = GetComponent<AudioSource>();
+            itislocked = GetComponent<AudioSource>();
+            closing = GetComponent<AudioSource>();
         }
 
         private IEnumerator PauseDoorInteraction()
