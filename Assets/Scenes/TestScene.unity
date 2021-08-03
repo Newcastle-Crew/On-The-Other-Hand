@@ -512,7 +512,6 @@ Transform:
   - {fileID: 176270559666038796}
   - {fileID: 79313766}
   - {fileID: 962314595}
-  - {fileID: 136048327}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1443,6 +1442,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
   redDoor: 0
@@ -1453,6 +1455,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 1
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 0}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -1790,12 +1795,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136048326}
-  m_LocalRotation: {x: -0, y: -0.9649118, z: -0, w: 0.2625743}
-  m_LocalPosition: {x: -2.801, y: 1.417, z: 0.784}
-  m_LocalScale: {x: 1.6009327, y: 0.0244, z: 1.1526586}
+  m_LocalRotation: {x: -0.49868318, y: -0.5013134, z: -0.5013134, w: -0.49868318}
+  m_LocalPosition: {x: 0.00563, y: 0.00005, z: 0.015821226}
+  m_LocalScale: {x: 0.016804531, y: 0.0030065237, z: 0.008469557}
   m_Children: []
-  m_Father: {fileID: 22067106}
-  m_RootOrder: 9
+  m_Father: {fileID: 962314595}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -149.554, z: 0}
 --- !u!65 &136048328
 BoxCollider:
@@ -3665,6 +3670,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: LeftDoorOpen
   closeAnimationName: LeftDoorClose
   redDoor: 1
@@ -3675,6 +3683,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 4
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 265652291}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -4089,7 +4100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289439053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.37, y: 5.97, z: -2.62}
+  m_LocalPosition: {x: -4.607, y: 4.51, z: -1.889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 79313766}
@@ -4107,8 +4118,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.78039217, g: 0.90588236, b: 0.64705884, a: 1}
-  m_Intensity: 8
-  m_Range: 10
+  m_Intensity: 7
+  m_Range: 9
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5042,6 +5053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
   redDoor: 0
@@ -5052,6 +5066,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 1
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 0}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -9182,6 +9199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
   redDoor: 0
@@ -9192,6 +9212,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 4
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 666994711}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -11732,6 +11755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
   redDoor: 0
@@ -11742,6 +11768,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 4
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 846530988}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -12946,13 +12975,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962314594}
-  m_LocalRotation: {x: -0.35278183, y: 0.6128172, z: 0.6128172, w: 0.35278183}
-  m_LocalPosition: {x: -2.439, y: 1.2886, z: 1.435}
+  m_LocalRotation: {x: -0.24770856, y: 0.6622994, z: 0.6622994, w: 0.24770856}
+  m_LocalPosition: {x: -2.99, y: 1.2886, z: 2.34}
   m_LocalScale: {x: 136.09546, y: 95.2668, z: 8.115685}
-  m_Children: []
+  m_Children:
+  - {fileID: 136048327}
   m_Father: {fileID: 22067106}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 120.144}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 138.987}
 --- !u!64 &962314596
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15837,7 +15867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51ae256c0b3fd044875cacc755b39b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriterSpeed: 16
+  typewriterSpeed: 28
 --- !u!1 &1292737954
 GameObject:
   m_ObjectHideFlags: 0
@@ -17450,6 +17480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
   redDoor: 0
@@ -17460,6 +17493,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 1
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 1438091237}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -17771,6 +17807,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
   redDoor: 0
@@ -17781,6 +17820,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 4
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 1448812816}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -23025,6 +23067,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: LeftDoorOpen
   closeAnimationName: LeftDoorClose
   redDoor: 0
@@ -23035,6 +23080,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 4
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 1808151460}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -25139,6 +25187,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5649179218798368984, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
   m_PrefabInstance: {fileID: 2003333321}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2003333323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4984985872191357538, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
+  m_PrefabInstance: {fileID: 2003333321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2003333324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003333323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5075b0809c2c294f89a585e70bd8d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redDoor: 0
+  blueDoor: 0
+  boxDoor: 0
+  redKey: 0
+  blueKey: 0
+  _keyInventory: {fileID: 874378579}
+  Collected: 1
 --- !u!1 &2016485198
 GameObject:
   m_ObjectHideFlags: 0
@@ -26114,15 +26186,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Size.y
-      value: 0.104014196
+      value: 0.08396765
       objectReference: {fileID: 0}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Center.x
-      value: -0.00034309988
+      value: -0.00034310043
       objectReference: {fileID: 0}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Center.y
-      value: -0.037007388
+      value: -0.026984112
       objectReference: {fileID: 0}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Center.z
@@ -26179,6 +26251,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5649179218798368984, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
   m_PrefabInstance: {fileID: 2103136982}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2103136984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4984985872191357538, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
+  m_PrefabInstance: {fileID: 2103136982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2103136985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103136984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5075b0809c2c294f89a585e70bd8d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redDoor: 0
+  blueDoor: 0
+  boxDoor: 0
+  redKey: 0
+  blueKey: 0
+  _keyInventory: {fileID: 874378579}
+  Collected: 1
 --- !u!1 &2105823593
 GameObject:
   m_ObjectHideFlags: 0
@@ -30903,6 +30999,7 @@ GameObject:
   - component: {fileID: 5327569159849411151}
   - component: {fileID: 5327569159849411148}
   - component: {fileID: 5327569159849411150}
+  - component: {fileID: 4984985873313152794}
   m_Layer: 6
   m_Name: Dissection Intercom
   m_TagString: InteractiveObject
@@ -30910,6 +31007,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4984985873313152794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984985873313152793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5075b0809c2c294f89a585e70bd8d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redDoor: 0
+  blueDoor: 0
+  boxDoor: 0
+  redKey: 0
+  blueKey: 0
+  _keyInventory: {fileID: 874378579}
+  Collected: 1
 --- !u!33 &5109157873935767961
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -31011,8 +31127,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.04938249, y: 0.104014196, z: 0.039309856}
-  m_Center: {x: -0.0042375945, y: -0.037007388, z: 0.004654927}
+  m_Size: {x: 0.04146219, y: 0.104014196, z: 0.039309856}
+  m_Center: {x: -0.00027743512, y: -0.037007388, z: 0.004654927}
 --- !u!114 &5327569159849411150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31060,23 +31176,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Size.x
-      value: 0.059179854
+      value: 0.035409078
       objectReference: {fileID: 0}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Size.y
-      value: 0.104014196
+      value: 0.07327339
       objectReference: {fileID: 0}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Center.x
-      value: 0.00066110195
+      value: -0.0010164891
       objectReference: {fileID: 0}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Center.y
-      value: -0.037007388
+      value: -0.02163704
       objectReference: {fileID: 0}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Center.z
-      value: -7.747907e-17
+      value: -6.248104e-17
       objectReference: {fileID: 0}
     - target: {fileID: 5649179218798368984, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_RootOrder
@@ -31124,6 +31240,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
+--- !u!1 &5327569160520753762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4984985872191357538, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
+  m_PrefabInstance: {fileID: 5327569160520753761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5327569160520753763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5327569160520753762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5075b0809c2c294f89a585e70bd8d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redDoor: 0
+  blueDoor: 0
+  boxDoor: 0
+  redKey: 0
+  blueKey: 0
+  _keyInventory: {fileID: 874378579}
+  Collected: 1
 --- !u!33 &5328351009838411578
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -31684,6 +31824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
   redDoor: 1
@@ -31694,6 +31837,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 4
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 6176454382114122784}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -31961,6 +32107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
   redDoor: 0
@@ -31971,6 +32120,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 1
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 0}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
@@ -32566,6 +32718,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
+  doorClosing: 0
+  doorRattle: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
   redDoor: 0
@@ -32576,6 +32731,9 @@ MonoBehaviour:
   _keyInventory: {fileID: 874378579}
   waitTimer: 4
   pauseInteraction: 0
+  doorOpeningSound: {fileID: 0}
+  doorClosingSound: {fileID: 0}
+  doorLockedSound: {fileID: 0}
   creakopen: {fileID: 6876618072584796250}
   itislocked: {fileID: 0}
   closing: {fileID: 0}
