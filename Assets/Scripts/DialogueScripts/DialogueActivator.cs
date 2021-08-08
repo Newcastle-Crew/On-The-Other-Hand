@@ -3,6 +3,12 @@ using UnityEngine;
 public class DialogueActivator : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueObject dialogueObject;
+    [SerializeField] private AudioSource staticOn;
+
+    private void Awake() // Will be responsible for playing the static noise when the player interacts with the intercom.
+    {
+        staticOn.GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other) // Will make the dialogue box appear when you get close.
     {
@@ -25,6 +31,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     public void Interact(PlayerInteract player) 
     {
-        player.DialogueUI.ShowDialogue(dialogueObject);
+        player.DialogueUI.ShowDialogue(dialogueObject); // Shows the dialogue when the player interacts with the object.
+        staticOn.Play(); // Plays the static sound effect when the player interacts with the object.
     }
 }

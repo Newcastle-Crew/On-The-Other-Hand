@@ -33,12 +33,12 @@ namespace KeySystem
 
             if(Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
             {
-                if (hit.collider.CompareTag(interactableTag))
+                if (hit.collider.CompareTag(interactableTag)) // If you look at an interactable object...
                 {
                     if (!doOnce)
                     {
                         raycastedObject = hit.collider.gameObject.GetComponent<KeyItemController>();
-                        CrosshairChange(true);
+                        CrosshairChange(true); // Makes the 'hand' crosshair visible when you look at an interactive object.
                     }
 
                     isCrosshairActive = true;
@@ -66,6 +66,7 @@ namespace KeySystem
             {
                 crosshair.color = Color.white; // Makes the crosshair appear when it's over something it can itneract with.
             }
+            
             else
             {
                 crosshair.color = Color.clear; // Otherwise, makes the crosshair invisible.

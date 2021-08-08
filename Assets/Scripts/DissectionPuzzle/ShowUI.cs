@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ShowUI : MonoBehaviour
+namespace KeySystem
 {
+    public class ShowUI : MonoBehaviour
+  {
     [SerializeField] public Canvas dissectionCanvas; // Requires a canvas to work, so drag one into the inspector.
     [SerializeField] public Canvas regularCanvas; // Requires a canvas to work, so drag one into the inspector.
 
@@ -23,7 +25,7 @@ public class ShowUI : MonoBehaviour
         }
     }
 
-    void ShowDissectionUI() 
+    public void ShowDissectionUI() 
     {
         dissectionCanvas.gameObject.SetActive(true); // Shows the dissection puzzle.
         regularCanvas.gameObject.SetActive(false);
@@ -39,4 +41,5 @@ public class ShowUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; // Stops the player from moving their cursor around and clicking freely.
     }
 
+  }
 }
