@@ -11,5 +11,7 @@ public class DialogueObject : ScriptableObject // Template for dialogue objects 
 
     public string[] Dialogue => dialogue; // Stops any outside code from overwriting the desired dialogue.
 
+    public bool HasResponses => Responses != null && Responses.Length > 0;
+
     public Response[] Responses => responses;
 }

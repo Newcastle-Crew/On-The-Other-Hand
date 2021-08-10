@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -8,11 +9,15 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TMP_Text textLabel;
 
     public bool IsOpen {get; private set;} // Checks if the UI is open - good for popping up in proximity to a speaker.
+
+    private ResponseHandler responseHandler;
     private TypewriterEffect typewriterEffect;
 
     private void Start() // Always gets the typewriter effect so that the words come in slowly.
     {        
         typewriterEffect = GetComponent<TypewriterEffect>();
+        responseHandler = GetComponent<ResponseHandler>();
+
         CloseDialogueBox();
     }
 
@@ -25,13 +30,25 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
     {
-        foreach (string dialogue in dialogueObject.Dialogue)
+        for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
-            yield return typewriterEffect.Run(dialogue, textLabel);
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0)); // Requires space to be pressed before going to the next line.
+            string dialogue = dialogueObject.Dialogue[i];
+            yield return typewriterEffect.Run(dialogue, textLabel); // Makes the text appear letter-by-letter, believably.
+
+            if(i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
+
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0)); // Requires left click to be pressed before going to the next page of dialogue.
         }
 
-        CloseDialogueBox();
+        if (dialogueObject.HasResponses)
+        {
+            responseHandler.ShowResponses(dialogueObject.Responses); // If this is a dialogue box with responses, show them.
+        }
+
+        else
+        {
+            CloseDialogueBox(); // If there are no responses, close the dialogue box.
+        }
     }
 
     private void CloseDialogueBox()

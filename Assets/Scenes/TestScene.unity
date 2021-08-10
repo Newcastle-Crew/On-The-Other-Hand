@@ -513,7 +513,6 @@ Transform:
   - {fileID: 79313766}
   - {fileID: 962314595}
   - {fileID: 175012696}
-  - {fileID: 875389438}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7078,7 +7077,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e4084526f25f5f94d8eaca8e742b71a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12447,7 +12446,7 @@ GameObject:
   - component: {fileID: 875389440}
   - component: {fileID: 875389439}
   m_Layer: 0
-  m_Name: Table (1)
+  m_Name: MeltyHeadTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12460,12 +12459,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875389437}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -40.66, y: 1.3227, z: -29.93}
-  m_LocalScale: {x: 61.0312, y: 100.820854, z: 8.58883}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.72000885, y: 1.3227, z: 3.6319008}
+  m_LocalScale: {x: 61.0312, y: 100.82086, z: 8.58883}
   m_Children: []
-  m_Father: {fileID: 22067106}
-  m_RootOrder: 10
+  m_Father: {fileID: 1426060540}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!64 &875389439
 MeshCollider:
@@ -13854,7 +13853,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Are you sure you want to open this box?
+  m_text: Are you SURE you want to open this box?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6941ff702aead68438f067290157ce04, type: 2}
   m_sharedMaterial: {fileID: -5738004011920284719, guid: 6941ff702aead68438f067290157ce04, type: 2}
@@ -16208,6 +16207,7 @@ GameObject:
   - component: {fileID: 1281998852}
   - component: {fileID: 1281998856}
   - component: {fileID: 1281998857}
+  - component: {fileID: 1281998858}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -16325,7 +16325,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51ae256c0b3fd044875cacc755b39b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriterSpeed: 28
+  typewriterSpeed: 36
+--- !u!114 &1281998858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281998851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b48e2104495689428dc8a332822c5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  responseBox: {fileID: 273766690}
+  responseButtonTemplate: {fileID: 1354333861}
+  responseContainer: {fileID: 1734903840}
 --- !u!1 &1292737954
 GameObject:
   m_ObjectHideFlags: 0
@@ -16849,7 +16864,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16858,8 +16873,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16883,7 +16898,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -17713,6 +17728,7 @@ Transform:
   - {fileID: 916200542}
   - {fileID: 2003333322}
   - {fileID: 1774661578}
+  - {fileID: 875389438}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23004,9 +23020,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 30
+    m_Left: 0
     m_Right: 0
-    m_Top: 15
+    m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 0
@@ -32245,6 +32261,10 @@ PrefabInstance:
       propertyPath: staticOn
       value: 
       objectReference: {fileID: 5327569160520753764}
+    - target: {fileID: 5327569161008955189, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
+      propertyPath: dialogueObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 19031d547507e6244a49d9c51cbf92a6, type: 2}
     - target: {fileID: 5327569161008955191, guid: 4c154389a5cb7684c910a49e2648dff9, type: 3}
       propertyPath: m_Size.x
       value: 0.035409078
