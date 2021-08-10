@@ -281,7 +281,8 @@ public class FirstPersonAIO : MonoBehaviour {
         #endregion
     }
 
-    private void Update(){
+    private void Update()
+    {
 
         #region Look Settings - Update
 

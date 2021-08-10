@@ -42,6 +42,7 @@ public class DialogueUI : MonoBehaviour
 
         if (dialogueObject.HasResponses)
         {
+            Cursor.visible = true; // Makes the cursor visible if there are buttons for the player to click.
             responseHandler.ShowResponses(dialogueObject.Responses); // If this is a dialogue box with responses, show them.
         }
 
@@ -53,8 +54,9 @@ public class DialogueUI : MonoBehaviour
 
     private void CloseDialogueBox()
     {
-        IsOpen = false; // Closes the dialogue box when you're not near a speaker.
-        dialogueBox.SetActive(false);
-        textLabel.text = string.Empty;
+        Cursor.visible = false; // Makes the cursor invisible when the player closes the dialogue box.
+        IsOpen = false; // Closes the dialogue box when you've finished reading the text & left-clicked.
+        dialogueBox.SetActive(false); // Tells unity to hide the box's UI. 
+        textLabel.text = string.Empty; // Removes the text.
     }
 }

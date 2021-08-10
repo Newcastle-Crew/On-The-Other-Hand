@@ -7,6 +7,8 @@ public class TypewriterEffect : MonoBehaviour
 {
     [SerializeField] private float typewriterSpeed = 40f; // The speed at which the text appears; tweakable in the inspector.
 
+    public bool IsRunning { get; private set; } // A bool that will let players skip text.
+
     private readonly Dictionary<HashSet<char>, float> punctuations = new Dictionary<HashSet<char>, float>() // Will make text pause when certain punctuation appears in-text.
     {
         {new HashSet<char>(){'.','!','?',}, 0.6f},
@@ -20,6 +22,8 @@ public class TypewriterEffect : MonoBehaviour
 
     private IEnumerator TypeText(string textToType, TMP_Text textLabel)
     {
+
+        IsRunning = true;
         textLabel.text = string.Empty; // Makes sure there's nothing in the box before playing text.
 
         float t = 0;
@@ -45,6 +49,7 @@ public class TypewriterEffect : MonoBehaviour
                 }
             }
 
+            IsRunning = false;
             textLabel.text = textToType.Substring(startIndex:0,length:charIndex); // Stops the game from displaying too many words
 
             yield return null;

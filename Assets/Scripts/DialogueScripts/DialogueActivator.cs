@@ -10,7 +10,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         staticOn.GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other) // Will make the dialogue box appear when you get close.
+    private void OnTriggerEnter(Collider other) // Lets you interact with the intercom when you get close.
     {
         if (other.CompareTag("Player") && other.TryGetComponent(out PlayerInteract player))
         {
@@ -18,7 +18,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         }
     }
 
-    private void OnTriggerExit(Collider other) // Will make the dialogue box disappear when you go away.
+    private void OnTriggerExit(Collider other) // Stops you from interacting with the intercom when you've moved away.
     {
         if (other.CompareTag("Player") && other.TryGetComponent(out PlayerInteract player))
         {
