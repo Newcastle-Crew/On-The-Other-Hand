@@ -28,6 +28,11 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(BleedOut()); // A coroutine that will make the player take 1 damage every second.
     }
 
+    public void WrongBox()
+    {
+        currentHealth -= 150; // When the player opens the wrong box, take off a chunk of their blood.
+    }
+
     IEnumerator BleedOut()
     {
         float lastDecrementTime = 0f;

@@ -23,9 +23,14 @@ public class DialogueUI : MonoBehaviour
 
     public void ShowDialogue(DialogueObject dialogueObject)
     {
-        IsOpen = true; // Opens the dialogue box when you're near a speaker.
+        IsOpen = true;
         dialogueBox.SetActive(true);
-        StartCoroutine(routine:StepThroughDialogue(dialogueObject));
+        StartCoroutine(StepThroughDialogue(dialogueObject));
+    }
+
+        public void AddResponseEvents(ResponseEvent[] responseEvents)
+    {
+        responseHandler.AddResponseEvents(responseEvents);
     }
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
@@ -33,10 +38,14 @@ public class DialogueUI : MonoBehaviour
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
             string dialogue = dialogueObject.Dialogue[i];
-            yield return typewriterEffect.Run(dialogue, textLabel); // Makes the text appear letter-by-letter, believably.
+            
+            yield return RunTypingEffect(dialogue);
 
+            textLabel.text = dialogue;
+            
             if(i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
 
+            yield return null;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0)); // Requires left click to be pressed before going to the next page of dialogue.
         }
 
@@ -52,7 +61,22 @@ public class DialogueUI : MonoBehaviour
         }
     }
 
-    private void CloseDialogueBox()
+    private IEnumerator RunTypingEffect(string dialogue)
+    {
+        typewriterEffect.Run(dialogue, textLabel);
+
+        while (typewriterEffect.IsRunning)
+        {
+            yield return null;
+
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                typewriterEffect.Stop();
+            }
+        }
+    }
+
+    public void CloseDialogueBox()
     {
         Cursor.visible = false; // Makes the cursor invisible when the player closes the dialogue box.
         IsOpen = false; // Closes the dialogue box when you've finished reading the text & left-clicked.

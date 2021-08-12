@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,72 +6,88 @@ using TMPro;
 
 public class TypewriterEffect : MonoBehaviour
 {
-    [SerializeField] private float typewriterSpeed = 40f; // The speed at which the text appears; tweakable in the inspector.
+    [SerializeField] private float typewriterSpeed = 50f;
 
-    public bool IsRunning { get; private set; } // A bool that will let players skip text.
-
-    private readonly Dictionary<HashSet<char>, float> punctuations = new Dictionary<HashSet<char>, float>() // Will make text pause when certain punctuation appears in-text.
+    public bool IsRunning { get; private set; }
+    
+    private readonly List<Punctuation> punctuations = new List<Punctuation>()
     {
-        {new HashSet<char>(){'.','!','?',}, 0.6f},
-        {new HashSet<char>(){',',';',':','"'}, 0.3f},
+        new Punctuation(new HashSet<char>() {'.', '!', '?'}, 0.6f), // Pauses the text scroll briefly for certain characters.
+        new Punctuation(new HashSet<char>() {',',';',':','"'}, 0.3f) // Pauses the text scroll briefly for certain characters.
     };
 
-    public Coroutine Run(string textToType, TMP_Text textLabel) 
+    private Coroutine typingCoroutine;
+    
+    public void Run(string textToType, TMP_Text textLabel)
     {
-        return StartCoroutine (routine: TypeText(textToType, textLabel));
+        typingCoroutine = StartCoroutine(TypeText(textToType, textLabel));
+    }
+
+    public void Stop()
+    {
+        StopCoroutine(typingCoroutine);
+        IsRunning = false;
     }
 
     private IEnumerator TypeText(string textToType, TMP_Text textLabel)
     {
-
         IsRunning = true;
-        textLabel.text = string.Empty; // Makes sure there's nothing in the box before playing text.
+        textLabel.text = string.Empty;
 
         float t = 0;
-        int charIndex = 0; // Will measure how many 'characters' (letters and numbers) are on screen
+        int charIndex = 0;
 
         while (charIndex < textToType.Length)
         {
             int lastCharIndex = charIndex;
+            
+            t += Time.deltaTime * typewriterSpeed;
+            
+            charIndex = Mathf.FloorToInt(t);
+            charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);
 
-            t += Time.deltaTime * typewriterSpeed; // Increments over time.
-            charIndex = Mathf.FloorToInt(t); // Stores the 'floor' value of the timer without the decimal point.
-            charIndex = Mathf.Clamp(value:charIndex, min:0, max:textToType.Length);
-
-            for(int i = lastCharIndex; i < charIndex; i++)
+            for (int i = lastCharIndex; i < charIndex; i++)
             {
                 bool isLast = i >= textToType.Length - 1;
+                
+                textLabel.text = textToType.Substring(0, i + 1);
 
-                textLabel.text = textToType.Substring(startIndex:0, length:i + 1);
-
-                if (IsPunctuation(textToType[i], out float waitTime) && !isLast && !IsPunctuation(textToType[i + 1], out _)) // Is the character punctuation? if so, wait
+                if (IsPunctuation(textToType[i], out float waitTime) && !isLast && !IsPunctuation(textToType[i + 1], out _))
                 {
                     yield return new WaitForSeconds(waitTime);
                 }
             }
-
-            IsRunning = false;
-            textLabel.text = textToType.Substring(startIndex:0,length:charIndex); // Stops the game from displaying too many words
-
+            
             yield return null;
         }
 
-        textLabel.text = textToType;
+        IsRunning = false;
     }
 
     private bool IsPunctuation(char character, out float waitTime)
     {
-        foreach (KeyValuePair <HashSet<char>, float> punctuationCategory in punctuations)
+        foreach (Punctuation punctuationCategory in punctuations)
         {
-                if (punctuationCategory.Key.Contains(character))
-                {
-                    waitTime = punctuationCategory.Value;
-                    return true;
-                }
+            if (punctuationCategory.Punctuations.Contains(character))
+            {
+                waitTime = punctuationCategory.WaitTime;
+                return true;
+            }
         }
 
         waitTime = default;
         return false;
     }
-    
+
+    private readonly struct Punctuation
+    {
+        public readonly HashSet<char> Punctuations;
+        public readonly float WaitTime;
+
+        public Punctuation(HashSet<char> punctuations, float waitTime)
+        {
+            Punctuations = punctuations;
+            WaitTime = waitTime;
+        }
+    }
 }
