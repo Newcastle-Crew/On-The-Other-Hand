@@ -12,6 +12,11 @@ namespace KeySystem
 
     public IInteractable Interactable { get; set; }
 
+    private void Awake() 
+    {
+        Cursor.visible = false; // Makes the cursor invisible.
+    }
+
     private void Update() 
     {
         if(Input.GetKeyDown(KeyCode.G))

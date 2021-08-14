@@ -9,43 +9,32 @@ namespace KeySystem
         private Animator doorAnim;
 
         public bool doorOpen = false;
-        public bool doorClosing = false;
-        public bool doorRattle = false;
 
         [SerializeField] private string openAnimationName = "DoorOpen";
         [SerializeField] private string closeAnimationName = "DoorClose";
 
         [SerializeField] private bool redDoor = false;
         [SerializeField] private bool blueDoor = false;
-        [SerializeField] private bool boxDoor = false;
 
         [SerializeField] private int timeToShowUI = 1;
         [SerializeField] private GameObject showDoorLockedUI = null;
 
-        [SerializeField] private KeyInventory _keyInventory = null;
+        [SerializeField] private KeyInventory _keyInventory = null; // Keeps track of keys so that coloured doors correspond to coloured keys.
 
         [SerializeField] private int waitTimer = 1; // Gives a 1-second timer between showing the "LOCKED" message.
         [SerializeField] private bool pauseInteraction = false; // Stops the player from spamming interaction.
 
+        [Header ("Audio")]
+        [SerializeField] private AudioSource doorOpenAudioSource = null; // A place for you to drag the 'opening' audio source.
+        [SerializeField] private float openDelay = 0; // Can delay the sound effect's beginning time.
 
-        [SerializeField] private AudioSource doorOpeningSound;
-        [SerializeField] private AudioSource doorClosingSound;
-        [SerializeField] private AudioSource doorLockedSound;
+        [SerializeField] private AudioSource doorCloseAudioSource = null; // A place for you to drag the 'closing' audio source.
+        [SerializeField] private float closeDelay = 0.4f; // Can delay the sound effect's beginning time.
 
-        [SerializeField] private AudioSource creakopen;
-        [SerializeField] private AudioSource itislocked;
-        [SerializeField] private AudioSource closing;
 
         private void Awake() 
         {
             doorAnim = gameObject.GetComponent<Animator>();
-
-            doorOpeningSound = GetComponent<AudioSource>();
-
-            creakopen = GetComponent<AudioSource>();
-            itislocked = GetComponent<AudioSource>();
-            closing = GetComponent<AudioSource>();
-
         }
 
         private IEnumerator PauseDoorInteraction()
@@ -67,11 +56,6 @@ namespace KeySystem
                 OpenDoor(); // Open the door.
             }
 
-            else if (boxDoor == true && _keyInventory.hasRedKey)
-            {
-                DestroyDoor();
-            }
-
             else
             {
                 StartCoroutine(ShowDoorLocked());
@@ -85,28 +69,22 @@ namespace KeySystem
                 {
                     doorAnim.Play(openAnimationName, 0, 0.0f);
                     doorOpen = true; // Opens the door.
-                    doorOpeningSound.Play(); // Plays the 'creaking door' sound effect.
                     StartCoroutine(PauseDoorInteraction()); // Stops the player from spamming the door.
+                    doorOpenAudioSource.PlayDelayed(openDelay); // Plays the 'opening' sound effect after a delay.
                 }
 
                 else if (doorOpen && !pauseInteraction)
                 {
                     doorAnim.Play(closeAnimationName, 0, 0.0f);
-                    doorOpen = false;
-                    doorClosing = true;
-                    StartCoroutine(PauseDoorInteraction());
+                    doorOpen = false; // Closes the door.
+                    StartCoroutine(PauseDoorInteraction()); // Stops  the player from spamming the doors.
+                    doorCloseAudioSource.PlayDelayed(closeDelay); // Plays the 'closing' sound effect after a delay.
                 }
             }
         }
 
-        public void DestroyDoor()
-        {
-            gameObject.SetActive(false);
-        }
-
         IEnumerator ShowDoorLocked()
         {
-            doorRattle = true;
             showDoorLockedUI.SetActive(true);
             yield return new WaitForSeconds(timeToShowUI);
             showDoorLockedUI.SetActive(false);

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 471f8f5ce80ee834fa19fa638590b5c8, type: 3}
-  m_Name: AreYouSure
+  m_Name: AreYouSureGood
   m_EditorClassIdentifier: 
   dialogue:
   - Are you SURE you want to open this box?
   responses:
   - responseText: Yes
-    dialogueObject: {fileID: 11400000, guid: 9f434a8c81cad8d439e20f7cc72f826a, type: 2}
+    dialogueObject: {fileID: 11400000, guid: 4dff27bec59689043a000a102fa5ff32, type: 2}
   - responseText: No
     dialogueObject: {fileID: 11400000, guid: 412c47ffb47ac3c40925dbd58641e243, type: 2}

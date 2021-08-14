@@ -6,14 +6,17 @@ namespace KeySystem
 {
     public class KeyItemController : MonoBehaviour
     {
-        [SerializeField] private bool redDoor = false;
-        [SerializeField] private bool blueDoor = false;
-        [SerializeField] private bool boxDoor = false;
+        [SerializeField] private bool redDoor = false; // A box that should be ticked if the object is the red door.
+        [SerializeField] private bool blueDoor = false; // A box that should be ticked if the object is the blue door.
 
-        [SerializeField] private bool redKey = false;
-        [SerializeField] private bool blueKey = false;
+        [SerializeField] private bool redKey = false; // A box that should be ticked if the object is the red key.
+        [SerializeField] private bool blueKey = false; // A box that should be ticked if the object is the blue key.
 
         [SerializeField] private KeyInventory _keyInventory = null;
+
+        [Header ("Audio")]
+        [SerializeField] private AudioSource itemPickupAudioSource = null; // A place for you to drag the 'pickup' audio source.
+        [SerializeField] private float pickupDelay = 0; // Can delay the sound effect's beginning time.
 
         public bool Collected = false;
 
@@ -21,7 +24,7 @@ namespace KeySystem
 
         private void Start() 
         {
-            if (redDoor || blueDoor || boxDoor)
+            if ( redDoor || blueDoor )
             {
                 doorObject = GetComponent<KeyDoorController>();
             }
@@ -29,36 +32,25 @@ namespace KeySystem
 
         public void ObjectInteraction()
         {
-            if (redDoor || blueDoor)
+            if ( redDoor || blueDoor )
             {
-                doorObject.PlayAnimation(); // If the player has the key and interacts with the door, it opens and plays the animation.
+                doorObject.PlayAnimation(); // If the player has the correct key and interacts with the door, it opens and plays the animation.
             }
 
-            if (boxDoor)
+            else if (redKey) // if the player interacts with the red key, it is added to their inventory.
             {
-                doorObject.DestroyDoor();
+                _keyInventory.hasRedKey = true; // Sets the inventory's "has red key?" bool to true.
+                gameObject.SetActive(false); // Removes the red key from the game.
+                itemPickupAudioSource.PlayDelayed(pickupDelay); // Plays the 'opening' sound effect after a delay.
             }
 
-            else if (redKey) // if the player interacts with the key, it is added to their inventory.
+            else if (blueKey) // if the player interacts with the blue key, it is added to their inventory.
             {
-                StartCoroutine(MakeaSwoosh());
-                _keyInventory.hasRedKey = true;
-                gameObject.SetActive(false);
-            }
-
-            else if (blueKey)
-            {
-                StartCoroutine(MakeaSwoosh());
-                _keyInventory.hasBlueKey = true;
-                gameObject.SetActive(false);
+                _keyInventory.hasBlueKey = true; // Sets the inventory's "has blue key?" bool to true.
+                gameObject.SetActive(false); // removes the blue key from the game.
+                itemPickupAudioSource.PlayDelayed(pickupDelay); // Plays the 'opening' sound effect after a delay.
             }
         } 
-
-        private IEnumerator MakeaSwoosh()
-        {
-            yield return Collected = true;
-            Collected = true;
-        }
     }
 
 }
