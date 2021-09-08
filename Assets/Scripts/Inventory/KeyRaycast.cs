@@ -64,7 +64,7 @@ namespace KeySystem
         {
             if (on && !doOnce)
             {
-                crosshair.color = Color.white; // Makes the crosshair appear when it's over something it can itneract with.
+                crosshair.color = Color.white; // Makes the crosshair appear when it's over something it can interact with.
             }
             
             else
