@@ -24,6 +24,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        eventData.pointerDrag.GetComponent<DragDrop>().droppedOnSlot = true;
+        eventData.pointerDrag.GetComponent<DragDrop>().defaultPos = transform.position;
+        
         if (eventData.pointerDrag != null) 
         {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
