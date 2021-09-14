@@ -19,6 +19,4 @@ MonoBehaviour:
 
     Can
     you bring my dreams to life?'
-  responses:
-  - responseText: fuck it
-    dialogueObject: {fileID: 11400000, guid: 412c47ffb47ac3c40925dbd58641e243, type: 2}
+  responses: []
