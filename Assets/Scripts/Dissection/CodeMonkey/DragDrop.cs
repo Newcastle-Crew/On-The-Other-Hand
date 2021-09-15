@@ -7,26 +7,18 @@ using UnityEngine.EventSystems;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler 
 {
+    [SerializeField] public int anAnimalPart; // '1' is for animal HEADS, '2' is for animal LEGS.
+    [SerializeField] public int aSpecification; // 1 is for frog, 2 is for bird, 3 is for fish.
+
+    #region  rectTransform, Canvas and canvasGroup
     [SerializeField] private Canvas canvas;
-
-    #region animal piece booleans
-    [SerializeField] public bool frogHead = false;
-    [SerializeField] public bool frogLegs = false;
-
-    [SerializeField] public bool birdHead = false;
-    [SerializeField] public bool birdLegs = false;
-
-    [SerializeField] public bool fishHead = false;
-    [SerializeField] public bool fishLegs = false;
-    #endregion
-
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    #endregion
 
     public Vector3 defaultPos; // The default position of a part being moved.
     public bool droppedOnSlot; // A boolean for checking if the part was dropped into a slot or not.
-
-    public bool isDraggable = true;
+    public bool isDraggable = true; // Does what it says on the tin - determines if the animal part is draggable or not.
 
     private void Start() 
     {
@@ -51,9 +43,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (frogHead||frogLegs||birdHead||birdLegs||fishHead||fishLegs && isDraggable)
+        if (anAnimalPart == 1 || anAnimalPart == 2) // If it's head or legs and can be dragged...
         {
-            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor; // Then the animal part will move with the mouse.
         }
     }
 
@@ -64,7 +56,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             transform.position = defaultPos; // If the item wasn't dropped on a slot, return it to its original position.
         }
 
-        if (frogHead||frogLegs||birdHead||birdLegs||fishHead||fishLegs && isDraggable)
+        if (anAnimalPart == 1 || anAnimalPart == 2)
         {
             canvasGroup.alpha = 1f; // Restores the image's regular transparency.
             canvasGroup.blocksRaycasts = true;
@@ -76,12 +68,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
 
     public void OnPointerDown(PointerEventData eventData)
-    {
-    }
+        {
+
+        }
 
     public void OnDrop(PointerEventData eventData)
-    {
+        {
         
-    }
+        }
 
     }

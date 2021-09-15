@@ -1,23 +1,28 @@
+#region 'Using information'
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+#endregion
 
-namespace KeySystem
+namespace KeySystem // Using the key system so that the hand shows up when looking at the table. Replace with one that will show the scalpel later.
 {
     public class ShowUI : MonoBehaviour
   {
+    
+    #region Canvases
     [SerializeField] public Canvas dissectionCanvas; // Requires a canvas to work, so drag one into the inspector.
     [SerializeField] public Canvas regularCanvas; // Requires a canvas to work, so drag one into the inspector.
+    #endregion
 
     public IInteractable Interactable { get; set; }
 
-    private void Awake() 
+    private void Awake()
     {
-        Cursor.visible = false; // Makes the cursor invisible.
+        Cursor.visible = false; // Makes the cursor invisible when the game starts.
     }
 
-    private void Update() 
+    private void Update()
     {
         if(Input.GetKeyDown(KeyCode.G))
         {
@@ -45,6 +50,5 @@ namespace KeySystem
         Cursor.visible = false; // Makes the cursor invisible.
         Cursor.lockState = CursorLockMode.Locked; // Stops the player from moving their cursor around and clicking freely.
     }
-
   }
 }

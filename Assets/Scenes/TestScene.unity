@@ -2318,7 +2318,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0c84044d0d39274479876b9fe5098c6b, type: 2}
+  - {fileID: 2100000, guid: 244c4e25b03846a428dc643533964141, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3496,7 +3496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &234892457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3827,13 +3827,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
+  aSlot: 1
   animalPart: {fileID: 1695195039}
-  frogHeadSlot: 0
-  frogLegsSlot: 0
-  birdHeadSlot: 0
-  birdLegsSlot: 0
-  fishHeadSlot: 1
-  fishLegsSlot: 0
+  anAnimalPart: 0
 --- !u!114 &256723114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6470,13 +6466,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
+  aSlot: 2
   animalPart: {fileID: 625899299}
-  frogHeadSlot: 0
-  frogLegsSlot: 0
-  birdHeadSlot: 0
-  birdLegsSlot: 1
-  fishHeadSlot: 0
-  fishLegsSlot: 0
+  anAnimalPart: 0
 --- !u!114 &384674826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7635,13 +7627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anAnimalPart: 1
+  aSpecification: 1
   canvas: {fileID: 234892459}
-  frogHead: 1
-  frogLegs: 0
-  birdHead: 0
-  birdLegs: 0
-  fishHead: 0
-  fishLegs: 0
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -9187,13 +9175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anAnimalPart: 0
+  aSpecification: 2
   canvas: {fileID: 234892459}
-  frogHead: 0
-  frogLegs: 0
-  birdHead: 0
-  birdLegs: 1
-  fishHead: 0
-  fishLegs: 0
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -9325,13 +9309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
+  aSlot: 3
   animalPart: {fileID: 0}
-  frogHeadSlot: 0
-  frogLegsSlot: 0
-  birdHeadSlot: 0
-  birdLegsSlot: 0
-  fishHeadSlot: 0
-  fishLegsSlot: 0
+  anAnimalPart: 0
 --- !u!225 &643147044
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11515,8 +11495,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802010471}
   m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: 4.24, y: 11.24, z: 4.8}
-  m_LocalScale: {x: 0.17838694, y: 0.17838693, z: 0.17838693}
+  m_LocalPosition: {x: 4.24, y: 11.42, z: 4.8}
+  m_LocalScale: {x: 0.17838694, y: 0.17838693, z: 0.2152595}
   m_Children: []
   m_Father: {fileID: 1606949491}
   m_RootOrder: 4
@@ -12505,13 +12485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anAnimalPart: 0
+  aSpecification: 2
   canvas: {fileID: 234892459}
-  frogHead: 0
-  frogLegs: 0
-  birdHead: 1
-  birdLegs: 0
-  fishHead: 0
-  fishLegs: 0
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -15272,8 +15248,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180811548}
   m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: -3.4099998, y: 11.24, z: 4.888}
-  m_LocalScale: {x: 0.17838694, y: 0.17838693, z: 0.17838693}
+  m_LocalPosition: {x: -3.4099998, y: 11.42, z: 4.888}
+  m_LocalScale: {x: 0.17838694, y: 0.17838693, z: 0.2152595}
   m_Children: []
   m_Father: {fileID: 1606949491}
   m_RootOrder: 1
@@ -15312,7 +15288,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a01be958a1f6c24e979ac71fc3c86f0, type: 2}
+  - {fileID: 2100000, guid: 4a50324bd297f99468e74fd06b493086, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17013,7 +16989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1281998852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18892,8 +18868,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431115654}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: -22.3011, y: 22.2908, z: 1.3942852}
-  m_LocalScale: {x: 11.5995, y: 5.200338, z: 0.406}
+  m_LocalPosition: {x: -22.2981, y: 22.2908, z: 1.3942852}
+  m_LocalScale: {x: 11.652881, y: 5.200338, z: 0.406}
   m_Children: []
   m_Father: {fileID: 1575861227}
   m_RootOrder: 0
@@ -19730,13 +19706,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
+  aSlot: 3
   animalPart: {fileID: 0}
-  frogHeadSlot: 0
-  frogLegsSlot: 0
-  birdHeadSlot: 0
-  birdLegsSlot: 0
-  fishHeadSlot: 0
-  fishLegsSlot: 0
+  anAnimalPart: 0
 --- !u!114 &1454544916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20861,13 +20833,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
+  aSlot: 2
   animalPart: {fileID: 1916563429}
-  frogHeadSlot: 0
-  frogLegsSlot: 0
-  birdHeadSlot: 0
-  birdLegsSlot: 0
-  fishHeadSlot: 0
-  fishLegsSlot: 1
+  anAnimalPart: 0
 --- !u!114 &1569629163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21120,13 +21088,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
+  aSlot: 1
   animalPart: {fileID: 490232738}
-  frogHeadSlot: 1
-  frogLegsSlot: 0
-  birdHeadSlot: 0
-  birdLegsSlot: 0
-  fishHeadSlot: 0
-  fishLegsSlot: 0
+  anAnimalPart: 0
 --- !u!114 &1577687897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21228,13 +21192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anAnimalPart: 2
+  aSpecification: 1
   canvas: {fileID: 234892459}
-  frogHead: 0
-  frogLegs: 1
-  birdHead: 0
-  birdLegs: 0
-  fishHead: 0
-  fishLegs: 0
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -21823,13 +21783,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
+  aSlot: 3
   animalPart: {fileID: 0}
-  frogHeadSlot: 0
-  frogLegsSlot: 0
-  birdHeadSlot: 0
-  birdLegsSlot: 0
-  fishHeadSlot: 0
-  fishLegsSlot: 0
+  anAnimalPart: 0
 --- !u!114 &1629393311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21895,8 +21851,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639535091}
   m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: -0.90999603, y: 11.24, z: 4.888}
-  m_LocalScale: {x: 0.17838694, y: 0.17838693, z: 0.17838693}
+  m_LocalPosition: {x: -0.90999603, y: 11.42, z: 4.888}
+  m_LocalScale: {x: 0.17838694, y: 0.17838693, z: 0.2152595}
   m_Children: []
   m_Father: {fileID: 1606949491}
   m_RootOrder: 2
@@ -22686,13 +22642,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
+  aSlot: 2
   animalPart: {fileID: 1578656496}
-  frogHeadSlot: 0
-  frogLegsSlot: 1
-  birdHeadSlot: 0
-  birdLegsSlot: 0
-  fishHeadSlot: 0
-  fishLegsSlot: 0
+  anAnimalPart: 0
 --- !u!114 &1685499131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23383,13 +23335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anAnimalPart: 0
+  aSpecification: 3
   canvas: {fileID: 234892459}
-  frogHead: 0
-  frogLegs: 0
-  birdHead: 0
-  birdLegs: 0
-  fishHead: 1
-  fishLegs: 0
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -23847,8 +23795,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724582906}
   m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: -5.9100037, y: 11.24, z: 4.888}
-  m_LocalScale: {x: 0.17838694, y: 0.17838693, z: 0.17838693}
+  m_LocalPosition: {x: -5.9100037, y: 11.42, z: 4.888}
+  m_LocalScale: {x: 0.17838694, y: 0.17838693, z: 0.2152595}
   m_Children: []
   m_Father: {fileID: 1606949491}
   m_RootOrder: 0
@@ -23887,7 +23835,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4a50324bd297f99468e74fd06b493086, type: 2}
+  - {fileID: 2100000, guid: 1a01be958a1f6c24e979ac71fc3c86f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26253,13 +26201,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846274698}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.669, y: 11.24, z: 4.8}
-  m_LocalScale: {x: 0.1783869, y: 0.1783869, z: 0.1783869}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 1.669, y: 11.42, z: 4.8}
+  m_LocalScale: {x: 0.1783869, y: 0.1783869, z: 0.2152595}
   m_Children: []
   m_Father: {fileID: 1606949491}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!64 &1846274700
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27056,13 +27004,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anAnimalPart: 0
+  aSpecification: 3
   canvas: {fileID: 234892459}
-  frogHead: 0
-  frogLegs: 0
-  birdHead: 0
-  birdLegs: 0
-  fishHead: 0
-  fishLegs: 1
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -27352,13 +27296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
+  aSlot: 1
   animalPart: {fileID: 852001061}
-  frogHeadSlot: 0
-  frogLegsSlot: 0
-  birdHeadSlot: 1
-  birdLegsSlot: 0
-  fishHeadSlot: 0
-  fishLegsSlot: 0
+  anAnimalPart: 0
 --- !u!114 &1935545971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29592,7 +29532,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
