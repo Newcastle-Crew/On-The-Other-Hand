@@ -3827,9 +3827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
-  aSlot: 1
-  animalPart: {fileID: 1695195039}
-  anAnimalPart: 0
+  thisSlot: 0
 --- !u!114 &256723114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6466,9 +6464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
-  aSlot: 2
-  animalPart: {fileID: 625899299}
-  anAnimalPart: 0
+  thisSlot: 1
 --- !u!114 &384674826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7627,9 +7623,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anAnimalPart: 1
-  aSpecification: 1
   canvas: {fileID: 234892459}
+  animalPieces: 0
+  animalType: 0
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -9175,9 +9171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anAnimalPart: 0
-  aSpecification: 2
   canvas: {fileID: 234892459}
+  animalPieces: 1
+  animalType: 1
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -9309,9 +9305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
-  aSlot: 3
-  animalPart: {fileID: 0}
-  anAnimalPart: 0
+  thisSlot: 2
 --- !u!225 &643147044
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -12485,9 +12479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anAnimalPart: 0
-  aSpecification: 2
   canvas: {fileID: 234892459}
+  animalPieces: 0
+  animalType: 1
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -19706,9 +19700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
-  aSlot: 3
-  animalPart: {fileID: 0}
-  anAnimalPart: 0
+  thisSlot: 2
 --- !u!114 &1454544916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20833,9 +20825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
-  aSlot: 2
-  animalPart: {fileID: 1916563429}
-  anAnimalPart: 0
+  thisSlot: 1
 --- !u!114 &1569629163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21088,9 +21078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
-  aSlot: 1
-  animalPart: {fileID: 490232738}
-  anAnimalPart: 0
+  thisSlot: 0
 --- !u!114 &1577687897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21192,9 +21180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anAnimalPart: 2
-  aSpecification: 1
   canvas: {fileID: 234892459}
+  animalPieces: 1
+  animalType: 0
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -21783,9 +21771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
-  aSlot: 3
-  animalPart: {fileID: 0}
-  anAnimalPart: 0
+  thisSlot: 2
 --- !u!114 &1629393311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22642,9 +22628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
-  aSlot: 2
-  animalPart: {fileID: 1578656496}
-  anAnimalPart: 0
+  thisSlot: 1
 --- !u!114 &1685499131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23335,9 +23319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anAnimalPart: 0
-  aSpecification: 3
   canvas: {fileID: 234892459}
+  animalPieces: 0
+  animalType: 2
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -27004,9 +26988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anAnimalPart: 0
-  aSpecification: 3
   canvas: {fileID: 234892459}
+  animalPieces: 1
+  animalType: 2
   defaultPos: {x: 0, y: 0, z: 0}
   droppedOnSlot: 0
   isDraggable: 1
@@ -27296,9 +27280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1225686961735689051}
-  aSlot: 1
-  animalPart: {fileID: 852001061}
-  anAnimalPart: 0
+  thisSlot: 0
 --- !u!114 &1935545971
 MonoBehaviour:
   m_ObjectHideFlags: 0
