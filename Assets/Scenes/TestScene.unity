@@ -6468,7 +6468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
   isBackdoor: 0
-  animal: 1
+  animal: 0
   part: 1
   currentOccupier: {fileID: 0}
 --- !u!114 &384674826
@@ -20253,6 +20253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1538895924}
+  - component: {fileID: 1538895925}
   m_Layer: 5
   m_Name: Dissection Puzzle
   m_TagString: Untagged
@@ -20284,6 +20285,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1538895925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538895923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fb7a2cb4278704eb31e70bb1ec82dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1547402003
 GameObject:
   m_ObjectHideFlags: 0
@@ -20832,7 +20845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
   isBackdoor: 0
-  animal: 2
+  animal: 1
   part: 1
   currentOccupier: {fileID: 0}
 --- !u!114 &1569629163
@@ -21088,7 +21101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
   isBackdoor: 0
-  animal: 0
+  animal: 1
   part: 0
   currentOccupier: {fileID: 0}
 --- !u!114 &1577687897
@@ -22642,7 +22655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
   isBackdoor: 0
-  animal: 0
+  animal: 2
   part: 1
   currentOccupier: {fileID: 0}
 --- !u!114 &1685499131
@@ -27293,7 +27306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
   isBackdoor: 0
-  animal: 1
+  animal: 0
   part: 0
   currentOccupier: {fileID: 0}
 --- !u!114 &1935545971
