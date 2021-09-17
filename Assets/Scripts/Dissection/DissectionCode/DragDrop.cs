@@ -5,93 +5,66 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 #endregion
 
-public enum Pieces // 0 = HEAD pieces, 1 = LEG pieces.
-{Head,Legs,} 
+[System.Serializable]
+public enum Part {
+    Head,
+    Legs,
+} 
 
-public enum Type // 0 = FROG, 1 = BIRD, 2 = FISH.
-{Frog,Bird,Fish}
+[System.Serializable]
+public enum Animal {
+    Frog,
+    Bird,
+    Fish,
+}
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler 
+public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    #region  rectTransform, Canvas and canvasGroup
-    [SerializeField] private Canvas canvas;
-    private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
-    #endregion
+    public Animal animal;
+    public Part part;
 
-    [SerializeField] private Pieces animalPieces; // Adds a drop down menu to all animal pieces in the editor. Choose between Head or Legs.
-    [SerializeField] private Type animalType; // Adds another drop down menu to all animal pieces in the editor. Choose between Frog, Bird or Fish.
+    public ItemSlot currentSlot;
+    public ItemSlot oldSlot = null;
 
-    public Vector3 defaultPos; // The default position of a part being moved.
-    public bool droppedOnSlot; // A boolean for checking if the part was dropped into a slot or not.
-    public bool isDraggable = true; // Determines if the animal part is draggable or not. True by default, false when in the right place.
+    Canvas canvas;
+    CanvasGroup canvasGroup;
+    RectTransform rectTransform;
 
-    private bool headMoving = false;
-    private bool legsMoving = false;
-
-    public ItemSlot current_slot = null;
-
-    private void Start()
-    {
-        defaultPos = transform.position; // Sets the part's default position as the one it started in.
-    }
-
-    private void Awake()
-    {
-        rectTransform = GetComponent<RectTransform>();
+    void Awake() {
+        canvas = GetComponentInParent<Canvas>();
         canvasGroup = GetComponent<CanvasGroup>();
+        rectTransform = GetComponent<RectTransform>();
 
-        defaultPos = transform.position; // Sets the part's default position as the one it started in.
+        rectTransform.anchoredPosition = currentSlot.GetComponent<RectTransform>().anchoredPosition;
+        currentSlot.currentOccupier = this;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        canvasGroup.alpha = .7f; // Makes the part slightly transparent when it's being moved.
+    public void OnBeginDrag(PointerEventData eventData) {
         canvasGroup.blocksRaycasts = false;
-        eventData.pointerDrag.GetComponent<DragDrop>().droppedOnSlot = false; // Assumes the part hasn't been dropped on a slot until the player lets go.
+        canvasGroup.alpha = 0.7f;
 
-        if (animalPieces == Pieces.Head)
-        {
-            Debug.Log("A Head is being dragged.");
-            headMoving = true;
+        if (currentSlot != null) {
+            currentSlot.currentOccupier = null;
         }
-
-        if (animalPieces == Pieces.Legs)
-        {
-            Debug.Log("A Pair of Legs is being dragged.");
-            legsMoving = true;
-        }
+        oldSlot = currentSlot;
+        currentSlot = null;
     }
 
-    public void OnDrag(PointerEventData eventData) // If it's being dragged...
-    {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor; // Then the animal part will move with the mouse.
+    public void OnDrag(PointerEventData eventData) {
+        // Move with the mouse
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        canvasGroup.alpha = 1f; // Restores the image's regular transparency.
+    public void OnEndDrag(PointerEventData eventData) {
+        canvasGroup.alpha = 1.0f;
         canvasGroup.blocksRaycasts = true;
 
-        if (headMoving == true && current_slot)
-        {
-
+        if (currentSlot == null) {
+            // We didn't get put on a slot.
+            currentSlot = oldSlot;
+            currentSlot.currentOccupier = this;
         }
 
-        if (droppedOnSlot == false) // If the item wasn't dropped on a slot...
-        {
-            transform.position = defaultPos; //...then it will be returned to its previous position.
-        }
+        rectTransform.anchoredPosition = currentSlot.GetComponent<RectTransform>().anchoredPosition;
     }
-
-    public void OnPointerDown(PointerEventData eventData)
-        {
-
-        }
-
-    public void OnDrop(PointerEventData eventData)
-        {
-        
-        }
-
-    }
+}

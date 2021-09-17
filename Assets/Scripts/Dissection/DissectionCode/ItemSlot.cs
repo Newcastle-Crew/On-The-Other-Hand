@@ -5,41 +5,37 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 #endregion
 
-public enum Slots
-{
-    Head,
-    Legs,
-    Table
-} // 0 = HEAD slots, 1 = LEGS slots, 2 = TABLE slots.
-
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
-    [SerializeField] private AudioSource squishy; // The 'squish' sound effect
-    [SerializeField] public Slots thisSlot; // Adds a drop down menu to all slots in the editor. Choose between Head, Legs or Table.
+    public AudioSource squishy;
 
-    private DragDrop dragDrop; // Lets you call in various ints and bools from the DragDrop class.
-    public DragDrop occupier = null;
+    public bool isBackdoor = false;
+    public Animal animal;
+    public Part part;
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        eventData.pointerDrag.GetComponent<DragDrop>().droppedOnSlot = true;
-        eventData.pointerDrag.GetComponent<DragDrop>().defaultPos = transform.position;
+    public DragDrop currentOccupier = null;
 
-        if (eventData.pointerDrag != null) // If the player stops holding click...
-        {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; // Gets the part's current position.
+    public void OnDrop(PointerEventData eventData) {
+        var drag_drop = eventData.pointerDrag.GetComponent<DragDrop>();
+        if (drag_drop == null) return;
 
-            if (thisSlot == Slots.Head || thisSlot == Slots.Legs)
-            {
-                squishy.Play(); // Squishy sound effect plays if a piece is placed on a head OR leg slot.
-                dragDrop.isDraggable = false;
-            }
+        if (currentOccupier != null || (!isBackdoor && drag_drop.part != part)) return;
 
-            if (thisSlot == Slots.Table)
-            {
-                dragDrop.isDraggable = false;
-                // If I ever want table slots to do something, this is the place to put that code.
-            }
+        currentOccupier = drag_drop;
+        drag_drop.currentSlot = this;
+
+        if (squishy != null && !isBackdoor) squishy.Play();
+
+        if (drag_drop.animal == animal && !isBackdoor) {
+            // Correct! Check for a win
+            GetComponentInParent<DissectionPuzzle>().CheckForWin();
         }
+    }
+
+    public bool IsCorrect() {
+        if (isBackdoor) return true;
+        if (currentOccupier == null) return false;
+
+        return currentOccupier.animal == animal;
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0040170457, g: 0.00021925409, b: 0.000000053148565, a: 1}
+  m_IndirectSpecularColor: {r: 0.0040170476, g: 0.00021925458, b: 0.000000053148565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3826,8 +3826,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804513a875c04843b9d9d0a7e07571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishy: {fileID: 1225686961735689051}
-  thisSlot: 0
+  squishy: {fileID: 1995511361}
+  isBackdoor: 0
+  animal: 2
+  part: 0
+  currentOccupier: {fileID: 0}
 --- !u!114 &256723114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6463,8 +6466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804513a875c04843b9d9d0a7e07571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishy: {fileID: 1225686961735689051}
-  thisSlot: 1
+  squishy: {fileID: 1995511361}
+  isBackdoor: 0
+  animal: 1
+  part: 1
+  currentOccupier: {fileID: 0}
 --- !u!114 &384674826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7623,12 +7629,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 234892459}
-  animalPieces: 0
-  animalType: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  droppedOnSlot: 0
-  isDraggable: 1
+  animal: 0
+  part: 0
+  currentSlot: {fileID: 1577687896}
+  oldSlot: {fileID: 0}
 --- !u!225 &490232739
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -9171,12 +9175,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 234892459}
-  animalPieces: 1
-  animalType: 1
-  defaultPos: {x: 0, y: 0, z: 0}
-  droppedOnSlot: 0
-  isDraggable: 1
+  animal: 1
+  part: 1
+  currentSlot: {fileID: 384674825}
+  oldSlot: {fileID: 0}
 --- !u!114 &625899300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9304,8 +9306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804513a875c04843b9d9d0a7e07571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishy: {fileID: 1225686961735689051}
-  thisSlot: 2
+  squishy: {fileID: 1995511361}
+  isBackdoor: 1
+  animal: 0
+  part: 0
+  currentOccupier: {fileID: 0}
 --- !u!225 &643147044
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -12479,12 +12484,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 234892459}
-  animalPieces: 0
-  animalType: 1
-  defaultPos: {x: 0, y: 0, z: 0}
-  droppedOnSlot: 0
-  isDraggable: 1
+  animal: 1
+  part: 0
+  currentSlot: {fileID: 1935545970}
+  oldSlot: {fileID: 0}
 --- !u!114 &852001062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19699,8 +19702,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804513a875c04843b9d9d0a7e07571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishy: {fileID: 1225686961735689051}
-  thisSlot: 2
+  squishy: {fileID: 1995511361}
+  isBackdoor: 1
+  animal: 0
+  part: 0
+  currentOccupier: {fileID: 0}
 --- !u!114 &1454544916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20824,8 +20830,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804513a875c04843b9d9d0a7e07571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishy: {fileID: 1225686961735689051}
-  thisSlot: 1
+  squishy: {fileID: 1995511361}
+  isBackdoor: 0
+  animal: 2
+  part: 1
+  currentOccupier: {fileID: 0}
 --- !u!114 &1569629163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21077,8 +21086,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804513a875c04843b9d9d0a7e07571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishy: {fileID: 1225686961735689051}
-  thisSlot: 0
+  squishy: {fileID: 1995511361}
+  isBackdoor: 0
+  animal: 0
+  part: 0
+  currentOccupier: {fileID: 0}
 --- !u!114 &1577687897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21180,12 +21192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 234892459}
-  animalPieces: 1
-  animalType: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  droppedOnSlot: 0
-  isDraggable: 1
+  animal: 0
+  part: 1
+  currentSlot: {fileID: 1685499130}
+  oldSlot: {fileID: 0}
 --- !u!114 &1578656497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21770,8 +21780,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804513a875c04843b9d9d0a7e07571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishy: {fileID: 1225686961735689051}
-  thisSlot: 2
+  squishy: {fileID: 1995511361}
+  isBackdoor: 1
+  animal: 0
+  part: 0
+  currentOccupier: {fileID: 0}
 --- !u!114 &1629393311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22627,8 +22640,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804513a875c04843b9d9d0a7e07571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishy: {fileID: 1225686961735689051}
-  thisSlot: 1
+  squishy: {fileID: 1995511361}
+  isBackdoor: 0
+  animal: 0
+  part: 1
+  currentOccupier: {fileID: 0}
 --- !u!114 &1685499131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23319,12 +23335,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 234892459}
-  animalPieces: 0
-  animalType: 2
-  defaultPos: {x: 0, y: 0, z: 0}
-  droppedOnSlot: 0
-  isDraggable: 1
+  animal: 2
+  part: 0
+  currentSlot: {fileID: 256723113}
+  oldSlot: {fileID: 0}
 --- !u!114 &1695195040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26988,12 +27002,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9229ce9b0ba890c4e85c603274763394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 234892459}
-  animalPieces: 1
-  animalType: 2
-  defaultPos: {x: 0, y: 0, z: 0}
-  droppedOnSlot: 0
-  isDraggable: 1
+  animal: 2
+  part: 1
+  currentSlot: {fileID: 1569629162}
+  oldSlot: {fileID: 0}
 --- !u!114 &1916563430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27279,8 +27291,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804513a875c04843b9d9d0a7e07571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishy: {fileID: 1225686961735689051}
-  thisSlot: 0
+  squishy: {fileID: 1995511361}
+  isBackdoor: 0
+  animal: 1
+  part: 0
+  currentOccupier: {fileID: 0}
 --- !u!114 &1935545971
 MonoBehaviour:
   m_ObjectHideFlags: 0
