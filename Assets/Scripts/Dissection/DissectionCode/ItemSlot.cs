@@ -9,7 +9,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 {
     public AudioSource squishy;
 
-    public bool isBackdoor = false;
+    public bool isTable = false;
     public Animal animal;
     public Part part;
 
@@ -19,21 +19,21 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         var drag_drop = eventData.pointerDrag.GetComponent<DragDrop>();
         if (drag_drop == null) return;
 
-        if (currentOccupier != null || (!isBackdoor && drag_drop.part != part)) return;
+        if (currentOccupier != null || (!isTable && drag_drop.part != part)) return;
 
         currentOccupier = drag_drop;
         drag_drop.currentSlot = this;
 
-        if (squishy != null && !isBackdoor) squishy.Play();
+        if (squishy != null && !isTable) squishy.Play();
 
-        if (drag_drop.animal == animal && !isBackdoor) {
+        if (drag_drop.animal == animal && !isTable) {
             // Correct! Check for a win
             GetComponentInParent<DissectionPuzzle>().CheckForWin();
         }
     }
 
     public bool IsCorrect() {
-        if (isBackdoor) return true;
+        if (isTable) return true;
         if (currentOccupier == null) return false;
 
         return currentOccupier.animal == animal;

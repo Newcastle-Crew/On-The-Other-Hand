@@ -6,13 +6,15 @@ using UnityEngine.EventSystems;
 #endregion
 
 [System.Serializable]
-public enum Part {
+public enum Part // An enum for the part of the animal you're moving.
+{
     Head,
     Legs,
 } 
 
 [System.Serializable]
-public enum Animal {
+public enum Animal // An enum for the type of animal you're moving.
+{
     Frog,
     Bird,
     Fish,
@@ -23,8 +25,8 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     public Animal animal;
     public Part part;
 
-    public ItemSlot currentSlot;
-    public ItemSlot oldSlot = null;
+    public ItemSlot currentSlot; // Checks which slot the item is currently in.
+    public ItemSlot oldSlot = null; // Checks which slot the item was previously in.
 
     Canvas canvas;
     CanvasGroup canvasGroup;
@@ -41,26 +43,29 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public void OnBeginDrag(PointerEventData eventData) {
         canvasGroup.blocksRaycasts = false;
-        canvasGroup.alpha = 0.7f;
+        canvasGroup.alpha = 0.7f; // Makes the animal part slightly transparent when it's being dragged.
 
-        if (currentSlot != null) {
+        if (currentSlot != null) 
+        {
             currentSlot.currentOccupier = null;
         }
+
         oldSlot = currentSlot;
         currentSlot = null;
     }
 
-    public void OnDrag(PointerEventData eventData) {
-        // Move with the mouse
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+    public void OnDrag(PointerEventData eventData) 
+    {
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor; // Moves the animal part with the mouse
     }
 
-    public void OnEndDrag(PointerEventData eventData) {
+    public void OnEndDrag(PointerEventData eventData) 
+    {
         canvasGroup.alpha = 1.0f;
         canvasGroup.blocksRaycasts = true;
 
-        if (currentSlot == null) {
-            // We didn't get put on a slot.
+        if (currentSlot == null) // if the item wasn't put on a slot.
+        {
             currentSlot = oldSlot;
             currentSlot.currentOccupier = this;
         }
