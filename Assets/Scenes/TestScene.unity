@@ -3827,8 +3827,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
-  isBackdoor: 0
-  animal: 2
+  isTable: 0
+  animal: 1
   part: 0
   currentOccupier: {fileID: 0}
 --- !u!114 &256723114
@@ -6467,8 +6467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
-  isBackdoor: 0
-  animal: 0
+  isTable: 0
+  animal: 2
   part: 1
   currentOccupier: {fileID: 0}
 --- !u!114 &384674826
@@ -9307,7 +9307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
-  isBackdoor: 1
+  isTable: 1
   animal: 0
   part: 0
   currentOccupier: {fileID: 0}
@@ -19703,7 +19703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
-  isBackdoor: 1
+  isTable: 1
   animal: 0
   part: 0
   currentOccupier: {fileID: 0}
@@ -20294,9 +20294,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1538895923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31fb7a2cb4278704eb31e70bb1ec82dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f1b82172be742742bdabbc77f8a2a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dissectionCanvas: {fileID: 234892459}
+  regularCanvas: {fileID: 1281998854}
 --- !u!1 &1547402003
 GameObject:
   m_ObjectHideFlags: 0
@@ -20844,8 +20846,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
-  isBackdoor: 0
-  animal: 1
+  isTable: 0
+  animal: 0
   part: 1
   currentOccupier: {fileID: 0}
 --- !u!114 &1569629163
@@ -21100,8 +21102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
-  isBackdoor: 0
-  animal: 1
+  isTable: 0
+  animal: 2
   part: 0
   currentOccupier: {fileID: 0}
 --- !u!114 &1577687897
@@ -21794,7 +21796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
-  isBackdoor: 1
+  isTable: 1
   animal: 0
   part: 0
   currentOccupier: {fileID: 0}
@@ -22654,8 +22656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
-  isBackdoor: 0
-  animal: 2
+  isTable: 0
+  animal: 1
   part: 1
   currentOccupier: {fileID: 0}
 --- !u!114 &1685499131
@@ -27212,7 +27214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1933787748}
   m_Layer: 0
-  m_Name: Sounds
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27305,7 +27307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishy: {fileID: 1995511361}
-  isBackdoor: 0
+  isTable: 0
   animal: 0
   part: 0
   currentOccupier: {fileID: 0}

@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class DissectionPuzzle : MonoBehaviour
 {
+
+    [SerializeField] public Canvas dissectionCanvas; // Requires a canvas to work, so drag the dissection canvas into the inspector.
+    [SerializeField] public Canvas regularCanvas; // Requires a canvas to work, so drag the regular UI canvas into the inspector.
+
     ItemSlot[] slots;
     bool alreadyWon = false;
 
@@ -14,18 +18,27 @@ public class DissectionPuzzle : MonoBehaviour
         slots = GetComponentsInChildren<ItemSlot>();
     }
 
-    public void CheckForWin() 
+    public void CheckForWin() // Code begins in ItemSlot.cs
     {
-        if (alreadyWon) return; // If we already won we don't want to do whatever cool happens once more, probably
+        if (alreadyWon) // If the player has already won the dissection puzzle and tries to enter the correct solution again, it will close the puzzle.
+        {
+            dissectionCanvas.gameObject.SetActive(false); // Hides the dissection puzzle.
+            regularCanvas.gameObject.SetActive(true); // Unhides the regular UI.
+            Cursor.visible = false; // Makes the cursor invisible.
+            Cursor.lockState = CursorLockMode.Locked; // Stops the player from moving their cursor around and clicking freely.
+        }
 
         foreach (var slot in slots) 
         {
-            if (!slot.IsCorrect()) return; // Checks to make sure every slot is correct. before proceeding.
+            if (!slot.IsCorrect()) return; // Checks to make sure every slot is correct before carrying out the code below.
         }
 
         alreadyWon = true;
 
         Debug.Log("Completed the dissection puzzle!");
-        // Insert code to do whatever should happen after winning here \/
+        dissectionCanvas.gameObject.SetActive(false); // Hides the dissection puzzle.
+        regularCanvas.gameObject.SetActive(true); // Unhides the regular UI.
+        Cursor.visible = false; // Makes the cursor invisible.
+        Cursor.lockState = CursorLockMode.Locked; // Stops the player from moving their cursor around and clicking freely.
     }
 }
