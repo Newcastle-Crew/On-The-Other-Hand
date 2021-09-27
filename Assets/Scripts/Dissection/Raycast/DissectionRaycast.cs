@@ -5,12 +5,27 @@ using UnityEngine;
 using UnityEngine.UI;
 #endregion
 
-public class LightswitchRaycast : MonoBehaviour
+public class DissectionRaycast : MonoBehaviour
 {
     [SerializeField] private int rayLength = 2; // How far the player can reach.
-    private LightswitchController interactiveObject;
+    private DissectionController interactiveObject;
+
+        #region Canvases
+    [SerializeField] public Canvas otherCanvas; // Requires a canvas to work, so drag one into the inspector.
+    [SerializeField] public Canvas regularCanvas; // Requires a canvas to work, so drag one into the inspector.
+    #endregion
 
     [SerializeField] private Image crosshair;
+
+    private void Start() 
+    {      
+        crosshair.color = Color.clear; // Stops the crosshair from appearing when it shouldn't by making it invisible as the game starts.
+                    
+            if (interactiveObject)
+            {
+                interactiveObject = GetComponent<DissectionController>();
+            }
+    }
 
     private void Update()
     {
@@ -18,7 +33,8 @@ public class LightswitchRaycast : MonoBehaviour
 
         if(Physics.Raycast(transform.position, fwd, out RaycastHit hit, rayLength))
         {
-            var raycastObj = hit.collider.gameObject.GetComponent<LightswitchController>();
+            var raycastObj = hit.collider.gameObject.GetComponent<DissectionController>();
+
             if(raycastObj != null)
             {
                 interactiveObject = raycastObj;
@@ -38,7 +54,10 @@ public class LightswitchRaycast : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                interactiveObject.InteractSwitch();
+                otherCanvas.gameObject.SetActive(true); // Shows the UI of the puzzle.
+                regularCanvas.gameObject.SetActive(false);
+                Cursor.visible = true; // Makes the cursor visible.
+                Cursor.lockState = CursorLockMode.None; // Allows the player to move their cursor around and click freely.
             }
         }
     }

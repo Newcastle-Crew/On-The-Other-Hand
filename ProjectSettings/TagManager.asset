@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InteractiveObject
   - HealingObject
+  - DissectionTable
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Silhouette
   - AnimalParts
   - Heal
-  - 
+  - Dissect
   - 
   - 
   - 

@@ -11,7 +11,7 @@ namespace KeySystem // Using the key system so that the hand shows up when looki
   {
     
     #region Canvases
-    [SerializeField] public Canvas dissectionCanvas; // Requires a canvas to work, so drag one into the inspector.
+    [SerializeField] public Canvas otherCanvas; // Requires a canvas to work, so drag one into the inspector.
     [SerializeField] public Canvas regularCanvas; // Requires a canvas to work, so drag one into the inspector.
     #endregion
 
@@ -24,20 +24,11 @@ namespace KeySystem // Using the key system so that the hand shows up when looki
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            ShowDissectionUI(); // Runs the 'ShowDissectionUI' void.
-        }
-
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            ExitPuzzle(); // Runs the 'ExitPuzzle' void.
-        }
     }
 
-    public void ShowDissectionUI() 
+    public void ShowPuzzleUI() 
     {
-        dissectionCanvas.gameObject.SetActive(true); // Shows the dissection puzzle.
+        otherCanvas.gameObject.SetActive(true); // Shows the UI of the puzzle.
         regularCanvas.gameObject.SetActive(false);
         Cursor.visible = true; // Makes the cursor visible.
         Cursor.lockState = CursorLockMode.None; // Allows the player to move their cursor around and click freely.
@@ -45,7 +36,7 @@ namespace KeySystem // Using the key system so that the hand shows up when looki
 
     public void ExitPuzzle()
     {
-        dissectionCanvas.gameObject.SetActive(false); // Hides the dissection puzzle.
+        otherCanvas.gameObject.SetActive(false); // Hides the puzzle's UI.
         regularCanvas.gameObject.SetActive(true);
         Cursor.visible = false; // Makes the cursor invisible.
         Cursor.lockState = CursorLockMode.Locked; // Stops the player from moving their cursor around and clicking freely.
