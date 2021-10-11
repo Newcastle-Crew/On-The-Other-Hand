@@ -12,7 +12,6 @@ public class KeypadDisplay : MonoBehaviour
 
     private string codeSequence;
 
-
     void Start() // Start is called before the first frame update
     {
         codeSequence = "";
