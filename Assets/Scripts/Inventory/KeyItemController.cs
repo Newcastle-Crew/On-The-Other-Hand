@@ -1,4 +1,4 @@
-#region 
+#region 'Using' information
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +10,11 @@ namespace KeySystem
     {
         [SerializeField] private bool redDoor = false; // A box that should be ticked if the object is the red door.
         [SerializeField] private bool blueDoor = false; // A box that should be ticked if the object is the blue door.
+        [SerializeField] private bool yellowDoor = false; // A box that should be ticked if the object is the yellow door.
 
         [SerializeField] private bool redKey = false; // A box that should be ticked if the object is the red key.
         [SerializeField] private bool blueKey = false; // A box that should be ticked if the object is the blue key.
+        [SerializeField] private bool yellowKey = false; // A box that should be ticked if the object is the yellow key.
 
         [SerializeField] private KeyInventory _keyInventory = null;
 
@@ -26,18 +28,14 @@ namespace KeySystem
 
         private void Start() 
         {
-            if ( redDoor || blueDoor )
-            {
-                doorObject = GetComponent<KeyDoorController>();
-            }
+            if ( redDoor || blueDoor || yellowDoor )
+            { doorObject = GetComponent<KeyDoorController>(); }
         }
 
         public void ObjectInteraction()
         {
-            if ( redDoor || blueDoor )
-            {
-                doorObject.PlayAnimation(); // If the player has the correct key and interacts with the door, it opens and plays the animation.
-            }
+            if ( redDoor || blueDoor || yellowDoor )
+            { doorObject.PlayAnimation(); } // If the player has the correct key and interacts with the door, it opens and plays the animation.
 
             else if (redKey) // if the player interacts with the red key, it is added to their inventory.
             {
@@ -50,6 +48,13 @@ namespace KeySystem
             {
                 _keyInventory.hasBlueKey = true; // Sets the inventory's "has blue key?" bool to true.
                 gameObject.SetActive(false); // removes the blue key from the game.
+                itemPickupAudioSource.PlayDelayed(pickupDelay); // Plays the 'opening' sound effect after a delay.
+            }
+
+            else if (yellowKey) // if the player interacts with the blue key, it is added to their inventory.
+            {
+                _keyInventory.hasYellowKey = true; // Sets the inventory's "has yellow key?" bool to true.
+                gameObject.SetActive(false); // removes the yellow key from the game.
                 itemPickupAudioSource.PlayDelayed(pickupDelay); // Plays the 'opening' sound effect after a delay.
             }
         } 

@@ -1,7 +1,8 @@
+#region 'Using' information
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+#endregion
 
 namespace KeySystem
 {
@@ -9,6 +10,7 @@ namespace KeySystem
         {
              public bool hasRedKey = false;
              public bool hasBlueKey = false;
+             public bool hasYellowKey = false;
         }
 }
 

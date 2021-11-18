@@ -1,7 +1,9 @@
+#region 'Using' information
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#endregion
 
 namespace KeySystem
 {
@@ -20,9 +22,7 @@ namespace KeySystem
         private string interactableTag = "InteractiveObject";
 
         private void Start() 
-        {      
-            crosshair.color = Color.clear; // Stops the crosshair from appearing when it shouldn't by making it invisible as the game starts.
-        }
+        { crosshair.color = Color.clear; } // Stops the crosshair from appearing when it shouldn't by making it invisible as the game starts.
 
         private void Update() 
         {
@@ -45,9 +45,7 @@ namespace KeySystem
                     doOnce = true;
 
                     if(Input.GetKeyDown(openDoorKey))
-                    {
-                        raycastedObject.ObjectInteraction();
-                    }
+                    { raycastedObject.ObjectInteraction(); }
                 }
             }
             else
@@ -63,10 +61,8 @@ namespace KeySystem
         void CrosshairChange(bool on)
         {
             if (on && !doOnce)
-            {
-                crosshair.color = Color.white; // Makes the crosshair appear when it's over something it can interact with.
-            }
-            
+            { crosshair.color = Color.white; } // Makes the crosshair appear when it's over something it can interact with.
+
             else
             {
                 crosshair.color = Color.clear; // Otherwise, makes the crosshair invisible.

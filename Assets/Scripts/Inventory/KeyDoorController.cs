@@ -1,6 +1,8 @@
+#region 'Using' information
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#endregion
 
 namespace KeySystem
 {
@@ -15,6 +17,7 @@ namespace KeySystem
 
         [SerializeField] private bool redDoor = false;
         [SerializeField] private bool blueDoor = false;
+        [SerializeField] private bool yellowDoor = false;
 
         [SerializeField] private int timeToShowUI = 1;
         [SerializeField] private GameObject showDoorLockedUI = null;
@@ -33,9 +36,7 @@ namespace KeySystem
 
 
         private void Awake() 
-        {
-            doorAnim = gameObject.GetComponent<Animator>();
-        }
+        { doorAnim = gameObject.GetComponent<Animator>(); }
 
         private IEnumerator PauseDoorInteraction()
         {
@@ -47,19 +48,16 @@ namespace KeySystem
         public void PlayAnimation()
         {
             if (redDoor == true && _keyInventory.hasRedKey) // If the player has the RED key...
-            {
-                OpenDoor(); // Open the door.
-            }
+            { OpenDoor(); } // Open the door.
 
             else if (blueDoor == true && _keyInventory.hasBlueKey) // If the player has the BLUE key...
-            {
-                OpenDoor(); // Open the door.
-            }
+            { OpenDoor(); } // Open the door.
+
+            else if (yellowDoor == true && _keyInventory.hasYellowKey) // If the player has the YELLOW key...
+            { OpenDoor(); } // Open the door.
 
             else
-            {
-                StartCoroutine(ShowDoorLocked());
-            }
+            { StartCoroutine(ShowDoorLocked()); }
         }
 
         void OpenDoor()
