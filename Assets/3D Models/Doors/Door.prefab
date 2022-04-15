@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4079361526765731180}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 44.225, y: -6.787, z: -27.219}
+  m_LocalPosition: {x: 0.99999994, y: 0.5689392, z: 0}
   m_LocalScale: {x: 0.09672177, y: 0.09672175, z: 0.09672175}
   m_Children: []
   m_Father: {fileID: 6262729416092110694}
@@ -124,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4713975347675200096}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 50.231, y: -7.133, z: -27.436}
+  m_LocalPosition: {x: 7, y: 0, z: 0}
   m_LocalScale: {x: 185.48116, y: 14.791159, z: 185.48116}
   m_Children: []
   m_Father: {fileID: 6262729416092110694}
@@ -192,13 +192,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
+  redDoor: 0
+  blueDoor: 0
+  yellowDoor: 0
   timeToShowUI: 1
   showDoorLockedUI: {fileID: 4079361526765731180}
   _keyInventory: {fileID: 0}
   waitTimer: 1
   pauseInteraction: 0
+  doorOpenAudioSource: {fileID: 0}
+  openDelay: 0
+  doorCloseAudioSource: {fileID: 0}
+  closeDelay: 0.4
 --- !u!114 &4713975347675200031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,90 +220,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redDoor: 1
+  blueDoor: 0
+  yellowDoor: 0
   redKey: 0
+  blueKey: 0
+  yellowKey: 0
   _keyInventory: {fileID: 0}
---- !u!1 &6658936609152466177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4756462071184938173}
-  - component: {fileID: 4256639943269957756}
-  - component: {fileID: 5440346994882341809}
-  m_Layer: 6
-  m_Name: Door frame
-  m_TagString: InteractiveObject
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4756462071184938173
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6658936609152466177}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 47.123, y: -7.133, z: -27.436}
-  m_LocalScale: {x: 185.48116, y: 14.791159, z: 185.48116}
-  m_Children: []
-  m_Father: {fileID: 6262729416092110694}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4256639943269957756
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6658936609152466177}
-  m_Mesh: {fileID: 6024427436735006416, guid: 6249f2e762debdb4d9780f6b895ade51, type: 3}
---- !u!23 &5440346994882341809
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6658936609152466177}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  itemPickupAudioSource: {fileID: 0}
+  pickupDelay: 0
+  Collected: 0
 --- !u!1 &6747095467001058780
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +242,7 @@ GameObject:
   m_Layer: 6
   m_Name: Door
   m_TagString: InteractiveObject
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -321,12 +254,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6747095467001058780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -88.5, y: 8.931061, z: 21.904243}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4079361526765731177}
   - {fileID: 3859176780156309026}
-  - {fileID: 4756462071184938173}
   - {fileID: 76347679213155503}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -373,11 +305,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7386256324753209965}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 49.331, y: -7.098, z: -27.678}
+  m_LocalPosition: {x: 7, y: 0, z: 0}
   m_LocalScale: {x: 300, y: 20, z: 300}
   m_Children: []
   m_Father: {fileID: 6262729416092110694}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1921168506061246792
 MeshFilter:
@@ -441,13 +373,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990729008e319464aaee2c42cd1b104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: 0
   openAnimationName: DoorOpen
   closeAnimationName: DoorClose
+  redDoor: 0
+  blueDoor: 0
+  yellowDoor: 0
   timeToShowUI: 1
   showDoorLockedUI: {fileID: 4079361526765731180}
   _keyInventory: {fileID: 0}
   waitTimer: 1
   pauseInteraction: 0
+  doorOpenAudioSource: {fileID: 0}
+  openDelay: 0
+  doorCloseAudioSource: {fileID: 0}
+  closeDelay: 0.4
 --- !u!114 &7386256324753209964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,8 +401,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redDoor: 1
+  blueDoor: 0
+  yellowDoor: 0
   redKey: 0
+  blueKey: 0
+  yellowKey: 0
   _keyInventory: {fileID: 0}
+  itemPickupAudioSource: {fileID: 0}
+  pickupDelay: 0
+  Collected: 0
 --- !u!65 &7386256324753209962
 BoxCollider:
   m_ObjectHideFlags: 0

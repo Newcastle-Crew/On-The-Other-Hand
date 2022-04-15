@@ -21,7 +21,7 @@ MonoBehaviour:
     LOUDER!
 
     {Left click to continue}'
-  - 'Just kidding, this is a prerecorded message. HA!
+  - 'Just kidding, this is a pre-recorded message. HA!
 
     Anyway, you should do
     something about that hand.
@@ -30,3 +30,4 @@ MonoBehaviour:
 
     HA!
     HAHA! HAHAHAHAHAHAHA!'
+  responses: []
