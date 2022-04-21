@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 6262729416092110694}
   - component: {fileID: 6747095467001058777}
   m_Layer: 6
-  m_Name: Door
+  m_Name: Door and KeycardReader
   m_TagString: InteractiveObject
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
