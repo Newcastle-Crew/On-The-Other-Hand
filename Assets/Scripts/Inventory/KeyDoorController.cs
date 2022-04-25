@@ -49,7 +49,6 @@ namespace KeySystem
 
         public void PlayAnimation()
         {
-
             if (closetDoor == true)
             { OpenDoor(); }
 

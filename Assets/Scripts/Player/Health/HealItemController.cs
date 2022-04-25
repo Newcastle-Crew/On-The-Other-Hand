@@ -9,6 +9,8 @@ namespace Health
         [SerializeField] private bool Syringe1 = false;
         [SerializeField] private bool Syringe2 = false;
         [SerializeField] private bool Syringe3 = false;
+        [SerializeField] private bool Syringe4 = false;
+        [SerializeField] private bool Syringe5 = false;
 
         public bool Healing = false; // Healing mechanic - tells the PlayerHealth class when to run the RestoreHealth method.
 
@@ -23,7 +25,7 @@ namespace Health
         
         public void SyringeInteraction()
         {
-            if (Syringe1 || Syringe2) // If the player has interacted with the syringe, run this code.
+            if (Syringe1 || Syringe2 || Syringe4) // If the player has interacted with the syringe, run this code.
             {
                 SyringesUsed++;
                 victimPain = true; // Sends a signal to play the 'pain' sound.
@@ -43,24 +45,30 @@ namespace Health
                     StartCoroutine(HealMe());
                 } 
             }
+
+            else if (Syringe5)
+            {
+                if(SyringesUsed >= 4)
+                {
+                    victimDie = true;
+
+                    StartCoroutine(HealMe());
+                }
+            }
         }
 
         private IEnumerator HealMe()
         {
-        Healing = true; // Starts healing the player
-        yield return new WaitForSeconds(waitTimer); // Waits a second
-        Healing = false;
+            Healing = true; // Starts healing the player
+            yield return new WaitForSeconds(waitTimer); // Waits a second
+            Healing = false;
 
             if (SyringesUsed >= 2)
             {
                 Healing = true;
                 Healing = false;
                 gameObject.SetActive(false); // Destroys the needle object.
-            }
-        
+            }     
+        }
     }
-
-    }
-
 }
-

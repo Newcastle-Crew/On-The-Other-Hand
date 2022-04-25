@@ -1,7 +1,9 @@
+# region Using
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#endregion
 
 namespace Health 
 {
@@ -14,6 +16,8 @@ public class PlayerHealth : MonoBehaviour
     public HealItemController firstjab; // Healing mechanic - checks to see if the player's taken the syringe.
     public HealItemController secondjab;
     public HealItemController thirdjab;
+    public HealItemController fourthjab;
+    public HealItemController fifthjab;
 
     public int maxHealth = 480; // Maximum health - actual value set inside the inspector.
     public int currentHealth; // Current health. Used in this class to determine how much damage you've taken and keep the bar's UI accurate.
@@ -39,15 +43,15 @@ public class PlayerHealth : MonoBehaviour
         float delayBetweenDecrements = 1f; // Keeps a 1-second gap between 'bleeds'.
 
         while (currentHealth > 0) // While the player's health is above 0...
-      {
-        if (Time.time - lastDecrementTime > delayBetweenDecrements) // And it's been a second since their last 'bleed'...
         {
-            currentHealth -= 1; // Reduces the player's health by 1.
-            healthBar.SetHealth(currentHealth); // Keeps the health bar's filling accurate
-            lastDecrementTime += delayBetweenDecrements; // Keeps the time between each 'bleed' accurate.
+            if (Time.time - lastDecrementTime > delayBetweenDecrements) // And it's been a second since their last 'bleed'...
+            {
+                currentHealth -= 1; // Reduces the player's health by 1.
+                healthBar.SetHealth(currentHealth); // Keeps the health bar's filling accurate
+                lastDecrementTime += delayBetweenDecrements; // Keeps the time between each 'bleed' accurate.
+            }
+            yield return null;
         }
-        yield return null;
-      }
     }
 
     void TakeDamage (int damage)
@@ -59,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update() // Update is called once per frame
     {
-        if (firstjab.Healing == true || secondjab.Healing == true || thirdjab.Healing == true) // Keeps an eye out for the player using a syringe.
+        if (firstjab.Healing == true || secondjab.Healing == true || thirdjab.Healing == true || fourthjab.Healing == true || fifthjab.Healing == true) // Keeps an eye out for the player using a syringe.
         {
             currentHealth = maxHealth; // Sets the player's current health to maximum.
             healthBar.SetHealth(currentHealth); // Lets the health bar sprite know that the player's health is beefed up.
@@ -79,7 +83,6 @@ public class PlayerHealth : MonoBehaviour
         Cursor.visible = true; // Makes the cursor visible.
         Cursor.lockState = CursorLockMode.None; // Allows the player to move their cursor around and click freely.
     }
-
 }
 
 }

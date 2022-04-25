@@ -8,11 +8,12 @@ using UnityEngine.Events;
 namespace KeySystem // Using the key system so that the hand shows up when looking at the table. Replace with one that will show the scalpel later.
 {
     public class ShowUI : MonoBehaviour
-  {
+    {
     
     #region Canvases
     [SerializeField] public Canvas otherCanvas; // Requires a canvas to work, so drag one into the inspector.
     [SerializeField] public Canvas regularCanvas; // Requires a canvas to work, so drag one into the inspector.
+    [SerializeField] public Canvas keypadCanvas; // Requires a canvas to work, so drag one into the inspector.
     #endregion
 
     public IInteractable Interactable { get; set; }
@@ -24,6 +25,20 @@ namespace KeySystem // Using the key system so that the hand shows up when looki
 
     private void Update()
     {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                ShowPuzzleUI(); // Runs the 'ShowDissectionUI' void.
+            }
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                ShowKeypadUI(); // Runs the 'ShowKeypadUI' void.
+            }
+
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                ExitPuzzle(); // Runs the 'ExitPuzzle' void.
+            }
     }
 
     public void ShowPuzzleUI() 
@@ -34,12 +49,28 @@ namespace KeySystem // Using the key system so that the hand shows up when looki
         Cursor.lockState = CursorLockMode.None; // Allows the player to move their cursor around and click freely.
     }
 
-    public void ExitPuzzle()
-    {
-        otherCanvas.gameObject.SetActive(false); // Hides the puzzle's UI.
-        regularCanvas.gameObject.SetActive(true);
-        Cursor.visible = false; // Makes the cursor invisible.
-        Cursor.lockState = CursorLockMode.Locked; // Stops the player from moving their cursor around and clicking freely.
+        public void ShowKeypadUI()
+        {
+            keypadCanvas.gameObject.SetActive(true); // Shows the UI of the puzzle.
+            regularCanvas.gameObject.SetActive(false);
+            Cursor.visible = true; // Makes the cursor visible.
+            Cursor.lockState = CursorLockMode.None; // Allows the player to move their cursor around and click freely.
+        }
+
+        public void ExitPuzzle()
+        {
+            otherCanvas.gameObject.SetActive(false); // Hides the puzzle's UI.
+            regularCanvas.gameObject.SetActive(true);
+            Cursor.visible = false; // Makes the cursor invisible.
+            Cursor.lockState = CursorLockMode.Locked; // Stops the player from moving their cursor around and clicking freely.
+        }
+
+        public void ExitKeypad()
+        {
+            keypadCanvas.gameObject.SetActive(false); // Hides the puzzle's UI.
+            regularCanvas.gameObject.SetActive(true);
+            Cursor.visible = false; // Makes the cursor invisible.
+            Cursor.lockState = CursorLockMode.Locked; // Stops the player from moving their cursor around and clicking freely.
+        }
     }
-  }
 }

@@ -12,6 +12,9 @@ public class KeypadDisplay : MonoBehaviour
 
     private string codeSequence;
 
+    public AudioSource beeping; // beeps for correct code
+    public bool correctEntered = false; // checks for correct code
+
     void Start() // Start is called before the first frame update
     {
         codeSequence = "";
@@ -22,6 +25,14 @@ public class KeypadDisplay : MonoBehaviour
         }
 
         KeypadButtons.ButtonPressed += AddDigitToCodeSequence;
+    }
+
+    private void Update()
+    {
+        if(correctEntered)
+        {
+            beeping.Play();
+        }
     }
 
     private void AddDigitToCodeSequence(string digitEntered)
@@ -134,9 +145,10 @@ public class KeypadDisplay : MonoBehaviour
 
     private void CheckResults()
     {
-        if (codeSequence == "4998") // The correct solution - uses the date on the movie posters but without the zeroes.
+        if (codeSequence == "0409") // The correct solution - uses the date on the movie posters.
         {
             Debug.Log("Correct!");
+            correctEntered = true;
         }
         else // If anything else is typed & then the key button is pressed...
         {
