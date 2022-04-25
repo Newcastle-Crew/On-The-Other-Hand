@@ -11,6 +11,11 @@ namespace KeySystem
              public bool hasRedKey = false;
              public bool hasBlueKey = false;
              public bool hasYellowKey = false;
+             public bool hasFinger1 = false;
+             public bool hasFinger2 = false;
+             public bool hasFinger3 = false;
+             public bool hasFinger4 = false;
+             public bool hasFinger5 = false;
         }
 }
 

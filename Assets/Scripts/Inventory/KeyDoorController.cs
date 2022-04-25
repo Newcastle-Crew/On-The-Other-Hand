@@ -15,9 +15,11 @@ namespace KeySystem
         [SerializeField] private string openAnimationName = "DoorOpen";
         [SerializeField] private string closeAnimationName = "DoorClose";
 
+        [SerializeField] private bool closetDoor = false;
         [SerializeField] private bool redDoor = false;
         [SerializeField] private bool blueDoor = false;
         [SerializeField] private bool yellowDoor = false;
+        [SerializeField] private bool finalDoor = false;
 
         [SerializeField] private int timeToShowUI = 1;
         [SerializeField] private GameObject showDoorLockedUI = null;
@@ -47,6 +49,10 @@ namespace KeySystem
 
         public void PlayAnimation()
         {
+
+            if (closetDoor == true)
+            { OpenDoor(); }
+
             if (redDoor == true && _keyInventory.hasRedKey) // If the player has the RED key...
             { OpenDoor(); } // Open the door.
 
@@ -54,6 +60,9 @@ namespace KeySystem
             { OpenDoor(); } // Open the door.
 
             else if (yellowDoor == true && _keyInventory.hasYellowKey) // If the player has the YELLOW key...
+            { OpenDoor(); } // Open the door.
+
+            else if (finalDoor == true && _keyInventory.hasFinger1 && _keyInventory.hasFinger2 && _keyInventory.hasFinger3 && _keyInventory.hasFinger4 && _keyInventory.hasFinger5) // If the player has ALL FINGERS...
             { OpenDoor(); } // Open the door.
 
             else
