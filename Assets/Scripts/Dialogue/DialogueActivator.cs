@@ -1,4 +1,9 @@
+#region 'Using' information
 using UnityEngine;
+#endregion
+
+// I used this tutorial --> https://www.youtube.com/playlist?list=PLCGaK2yqfY2IrJYnOnlgdmzWVUFXsRQXA
+// Repo here --> https://github.com/Pattrigue/DialogueSystem
 
 public class DialogueActivator : MonoBehaviour, IInteractable
 {

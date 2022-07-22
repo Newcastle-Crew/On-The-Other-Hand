@@ -1,8 +1,13 @@
+#region 'Using' information
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+#endregion
+
+// I used this tutorial --> https://www.youtube.com/playlist?list=PLCGaK2yqfY2IrJYnOnlgdmzWVUFXsRQXA
+// Repo here --> https://github.com/Pattrigue/DialogueSystem
 
 public class TypewriterEffect : MonoBehaviour
 {

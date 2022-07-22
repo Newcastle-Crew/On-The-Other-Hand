@@ -1,7 +1,13 @@
+#region 'Using' information
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+#endregion
+
+// I used this tutorial --> https://www.youtube.com/playlist?list=PLCGaK2yqfY2IrJYnOnlgdmzWVUFXsRQXA
+// Repo here --> https://github.com/Pattrigue/DialogueSystem
+// It'd be great to see the 'yes' and 'no' buttons in the middle of the screen, or at the very least separated.
 
 public class ResponseHandler : MonoBehaviour
 {
@@ -15,14 +21,10 @@ public class ResponseHandler : MonoBehaviour
     private List<GameObject> tempResponseButtons = new List<GameObject>();
 
     private void Start()
-    {
-        dialogueUI = GetComponent<DialogueUI>();
-    }
+    { dialogueUI = GetComponent<DialogueUI>(); }
 
     public void AddResponseEvents(ResponseEvent[] responseEvents)
-    {
-        this.responseEvents = responseEvents;
-    }
+    { this.responseEvents = responseEvents; }
     
     public void ShowResponses(Response[] responses)
     {
@@ -52,25 +54,18 @@ public class ResponseHandler : MonoBehaviour
         responseBox.gameObject.SetActive(false);
 
         foreach (GameObject button in tempResponseButtons)
-        {
-            Destroy(button);
-        }
+        { Destroy(button); }
+
         tempResponseButtons.Clear();
 
         if (responseEvents != null && responseIndex <= responseEvents.Length)
-        {
-            responseEvents[responseIndex].OnPickedResponse?.Invoke();
-        }
+        { responseEvents[responseIndex].OnPickedResponse?.Invoke(); }
 
         responseEvents = null;
 
         if (response.DialogueObject)
-        {
-            dialogueUI.ShowDialogue(response.DialogueObject);
-        }
+        { dialogueUI.ShowDialogue(response.DialogueObject); }
         else
-        {
-            dialogueUI.CloseDialogueBox();
-        }
+        { dialogueUI.CloseDialogueBox(); }
     }
 }

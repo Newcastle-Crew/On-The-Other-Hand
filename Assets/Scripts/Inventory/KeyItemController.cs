@@ -4,37 +4,45 @@ using System.Collections.Generic;
 using UnityEngine;
 #endregion
 
+// I used this tutorial. --> https://youtu.be/SlEgvvNYXQU
+
 namespace KeySystem
 {
     public class KeyItemController : MonoBehaviour
     {
+        [Header("Doors")]
         [SerializeField] private bool closetDoor = false; // A box that should be ticked if the object is a closet door.
         [SerializeField] private bool redDoor = false; // A box that should be ticked if the object is the red door.
         [SerializeField] private bool blueDoor = false; // A box that should be ticked if the object is the blue door.
         [SerializeField] private bool yellowDoor = false; // A box that should be ticked if the object is the yellow door.
         [SerializeField] private bool finalDoor = false; // A box that should be ticked if the object is the final door.
 
+        [Header("Keys")]
         [SerializeField] private bool redKey = false; // A box that should be ticked if the object is the red key.
         [SerializeField] private bool blueKey = false; // A box that should be ticked if the object is the blue key.
         [SerializeField] private bool yellowKey = false; // A box that should be ticked if the object is the yellow key.
-        
+
+
+        [Header("Fingers")]
         [SerializeField] private bool finger1 = false; // A box that should be ticked if the object is the corresponding finger.
         [SerializeField] private bool finger2 = false; // A box that should be ticked if the object is the corresponding finger.
         [SerializeField] private bool finger3 = false; // A box that should be ticked if the object is the corresponding finger.
         [SerializeField] private bool finger4 = false; // A box that should be ticked if the object is the corresponding finger.
         [SerializeField] private bool finger5 = false; // A box that should be ticked if the object is the corresponding finger.
 
-        [SerializeField] private KeyInventory _keyInventory = null;
+        
 
         [Header ("Audio")]
         [SerializeField] private AudioSource itemPickupAudioSource = null; // A place for you to drag the 'pickup' audio source.
         [SerializeField] private float pickupDelay = 0; // Can delay the sound effect's beginning time.
 
+        [Header("Misc")]
         public bool Collected = false;
+        [SerializeField] private KeyInventory _keyInventory = null;
 
         private KeyDoorController doorObject;
 
-        private void Start() 
+        private void Start()
         {
             if ( redDoor || blueDoor || yellowDoor || finalDoor || closetDoor)
             { doorObject = GetComponent<KeyDoorController>(); }
@@ -102,6 +110,5 @@ namespace KeySystem
             }
         } 
     }
-
 }
 

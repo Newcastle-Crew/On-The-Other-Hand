@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class DissectionPuzzle : MonoBehaviour
 {
-
     [SerializeField] public Canvas dissectionCanvas; // Requires a canvas to work, so drag the dissection canvas into the inspector.
     [SerializeField] public Canvas regularCanvas; // Requires a canvas to work, so drag the regular UI canvas into the inspector.
 
