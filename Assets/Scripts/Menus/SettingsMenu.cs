@@ -1,71 +1,65 @@
 #region 'Using' information
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using TMPro;
 #endregion
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer musicMixer;   // The mixer that controls music volume.
-    public AudioMixer SFXMixer;     // The mixer that controls sound effect volume.
+    [SerializeField] private AudioMixer musicMixer;   // The mixer that controls music volume.
+    [SerializeField] private AudioMixer SFXMixer;     // The mixer that controls sound effect volume.
+    [SerializeField] private Slider musicSlider; // The slider that controls music volume.
+    [SerializeField] private Slider SFXSlider; // The slider that controls sound effect volume.
+    [SerializeField] private Slider mouseSensSlider; //The slider that controls mouse sensitivity
 
-    public Slider musicSlider; // The slider that controls music volume.
-    public Slider SFXSlider; // The slider that controls sound effect volume.
-
-    public Slider mouseSensSlider;
     public static float mouseSens;
+    private const string musicString = "musicVolume";
+    private const string sfxString = "SFXVolume";
+    private const string mouseString = "mouseSens";
+    private const float defaultValue = 0.5f; //Used as default value if the player prefs key isn't found
 
-    public GameObject parent;
+
     private void Awake()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume", .5f); // Gets the float value of musicVolume, or uses .5f if it isn't found.
-        musicMixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume", .5f));
-        Debug.Log(PlayerPrefs.GetFloat("musicVolume", .5f));
+        //Initialize settings
+        musicSlider.value = PlayerPrefs.GetFloat(musicString, defaultValue);
+        SetMusicVolume(musicSlider.value);
 
-        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", .5f); // Gets the float value of SFXVolume, or uses .5f if it isn't found.
-        SFXMixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume", .5f));
+        SFXSlider.value = PlayerPrefs.GetFloat(sfxString, defaultValue);
+        SetSFXVolume(SFXSlider.value);
 
-        //Set mouse settings
-        mouseSensSlider.value = PlayerPrefs.GetFloat("mouseSens", .5f);
-        mouseSens = PlayerPrefs.GetFloat("mouseSens", .5f);
-
-        //Disable self after initialising settings
-        if (parent != null)
-            transform.SetParent(parent.transform);
-
-        gameObject.SetActive(false);
+        mouseSensSlider.value = PlayerPrefs.GetFloat(mouseString, defaultValue);
+        SetMouseSens(mouseSensSlider.value);
     }
 
     public void SetMusicVolume(float musicVol)
     {
-        PlayerPrefs.SetFloat("musicVolume", musicVol); // Sets the value of SliderVolume to the music volume value.
+        SavePlayerPref(musicString, musicVol); // Sets the value of SliderVolume to the music volume value.
         if (musicVol <= 0)
-            musicMixer.SetFloat("musicVolume", 0); //Avoid mathematical errors with Mathf.Log10(0);
-
-        else musicMixer.SetFloat("musicVolume", Mathf.Log10(musicVol) * 20);
-
-        PlayerPrefs.Save();
+            musicMixer.SetFloat(musicString, 0); //Avoid mathematical errors with Mathf.Log10(0);
+        else 
+            musicMixer.SetFloat(musicString, Mathf.Log10(musicVol) * 20);
     }
 
     public void SetSFXVolume(float sfxVol)
     {
-        PlayerPrefs.SetFloat("SFXVolume", sfxVol); // Sets the value of SliderVolume to the sound effect volume value.
+        SavePlayerPref(sfxString, sfxVol);
         if (sfxVol <= 0)
-            SFXMixer.SetFloat("SFXVolume", 0);
-
-        else SFXMixer.SetFloat("SFXVolume", Mathf.Log10(sfxVol) * 20);
-
-        PlayerPrefs.Save();
+            SFXMixer.SetFloat(sfxString, 0);
+        else 
+            SFXMixer.SetFloat(sfxString, Mathf.Log10(sfxVol) * 20);
     }
 
-    public void SetMouseSens(float _sens)
+    public void SetMouseSens(float sens)
     {
-        PlayerPrefs.SetFloat("mouseSens", _sens);
-        mouseSens = _sens;
+        SavePlayerPref(mouseString, sens);
+        mouseSens = sens;
+    }
 
+    private void SavePlayerPref(string key, float value)
+    {
+        if(PlayerPrefs.GetFloat(key, defaultValue) == value) return;
+        PlayerPrefs.SetFloat(key, value);
         PlayerPrefs.Save();
     }
 }
