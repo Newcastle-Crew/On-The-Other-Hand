@@ -1,4 +1,5 @@
 #region 'Using' information
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -13,10 +14,13 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider mouseSensSlider; //The slider that controls mouse sensitivity
 
     public static float mouseSens;
-    private const string musicString = "musicVolume";
-    private const string sfxString = "SFXVolume";
-    private const string mouseString = "mouseSens";
+    private float mouseSensFactor = 10f; //Chosen by using the default value of the FirstPersonAIO script
+    public const string musicString = "musicVolume";
+    public const string sfxString = "SFXVolume";
+    public const string mouseString = "mouseSens";
     private const float defaultValue = 0.5f; //Used as default value if the player prefs key isn't found
+
+    public static event Action<float> OnSensitivityChange;
 
 
     private void Awake()
@@ -53,7 +57,8 @@ public class SettingsMenu : MonoBehaviour
     public void SetMouseSens(float sens)
     {
         SavePlayerPref(mouseString, sens);
-        mouseSens = sens;
+        mouseSens = sens * mouseSensFactor;
+        OnSensitivityChange?.Invoke(mouseSens);
     }
 
     private void SavePlayerPref(string key, float value)

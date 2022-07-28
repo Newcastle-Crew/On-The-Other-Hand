@@ -209,6 +209,16 @@ public class FirstPersonAIO : MonoBehaviour {
 
     }
 
+    private void OnEnable()
+    {
+        SettingsMenu.OnSensitivityChange += ChangeMouseSensitivity;
+    }
+
+    void OnDisable()
+    {
+        SettingsMenu.OnSensitivityChange -= ChangeMouseSensitivity;
+    }
+
     private void Start(){
         #region Look Settings - Start
 
@@ -254,6 +264,7 @@ public class FirstPersonAIO : MonoBehaviour {
         }
 
         baseCamFOV = playerCamera.fieldOfView;
+        ChangeMouseSensitivity(SettingsMenu.mouseSens);
         #endregion
 
         #region Movement Settings - Start  
@@ -666,7 +677,10 @@ public class FirstPersonAIO : MonoBehaviour {
     }
 
 
-
+    private void ChangeMouseSensitivity(float sense)
+    {
+        mouseSensitivity = sense;
+    }
 
 
     float SlopeCheck(){
@@ -822,7 +836,6 @@ public class FirstPersonAIO : MonoBehaviour {
             customFS = SerT.FindProperty("dynamicFootstep.customClipSet");
             customMat = SerT.FindProperty("dynamicFootstep.customMat");
             customPhysMat = SerT.FindProperty("dynamicFootstep.customPhysMat");
-
         }   
         public override void OnInspectorGUI(){
             if(t.transform.localScale!=Vector3.one){

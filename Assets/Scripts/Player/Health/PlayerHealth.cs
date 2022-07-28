@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
     {     
         currentHealth = maxHealth; // Starts the game and has the player at maximum health.
         healthBar.SetMaxHealth(maxHealth); // Starts the game with a full health bar.
+        Debug.Log($"{maxHealth}, {currentHealth}");
         StartCoroutine(BleedOut()); // A coroutine that will make the player take 1 damage every second.
     }
 
@@ -39,18 +40,13 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator BleedOut()
     {
-        float lastDecrementTime = 0f;
         float delayBetweenDecrements = 1f; // Keeps a 1-second gap between 'bleeds'.
 
         while (currentHealth > 0) // While the player's health is above 0...
         {
-            if (Time.time - lastDecrementTime > delayBetweenDecrements) // And it's been a second since their last 'bleed'...
-            {
-                currentHealth -= 1; // Reduces the player's health by 1.
-                healthBar.SetHealth(currentHealth); // Keeps the health bar's filling accurate
-                lastDecrementTime += delayBetweenDecrements; // Keeps the time between each 'bleed' accurate.
-            }
-            yield return null;
+            yield return new WaitForSeconds(delayBetweenDecrements); //This delays the apporopriate amount of time AND pauses when the game pauses
+            currentHealth -= 1; // Reduces the player's health by 1.
+            healthBar.SetHealth(currentHealth); // Keeps the health bar's filling accurate
         }
     }
 
@@ -79,6 +75,7 @@ public class PlayerHealth : MonoBehaviour
 
     public static void BacktoMenu()
     {
+        Debug.Log("reload scene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1); // Loads the main menu screen when you die.
         Cursor.visible = true; // Makes the cursor visible.
         Cursor.lockState = CursorLockMode.None; // Allows the player to move their cursor around and click freely.
