@@ -1,6 +1,4 @@
 ﻿#region 'Using' information
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 #endregion
@@ -8,17 +6,13 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-
     public GameObject pauseMenuUI;
+    [SerializeField] private GameObject[] subMenus = new GameObject[0];
 
-    private void Awake()
-    {
-        Pause();
-    }
 
     void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (CanPause() && Input.GetButtonDown("Pause"))
         {
             if (GameIsPaused)
             { Resume(); }
@@ -50,4 +44,14 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
         Resume();
     } 
+
+    private bool CanPause()
+    {
+        foreach(GameObject menu in subMenus)
+        {
+            if(menu.activeInHierarchy) return false;
+        }
+
+        return true;
+    }
 }
