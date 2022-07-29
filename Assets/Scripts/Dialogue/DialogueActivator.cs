@@ -18,25 +18,6 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         this.dialogueObject = dialogueObject;
     }
 
-    private void OnTriggerEnter(Collider other) // lets you interact with the dialogue object when you get close.
-    {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerInteract player))
-        {
-            player.Interactable = this;
-        }
-    }
-
-    private void OnTriggerExit(Collider other) // Stops you from interacting with the dialogue object when you've moved away.
-    {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerInteract player))
-        {
-            if(player.Interactable is DialogueActivator dialogueActivator && dialogueActivator == this)
-            {
-                player.Interactable = null;
-            }
-        }
-    }
-
     public void Interact(PlayerInteract player) 
     {
         foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>()) // If the dialogue object has choices, shows them.

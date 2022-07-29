@@ -1,6 +1,5 @@
 # region Using
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 #endregion
@@ -21,15 +20,15 @@ public class PlayerHealth : MonoBehaviour
 
     public int maxHealth = 480; // Maximum health - actual value set inside the inspector.
     public int currentHealth; // Current health. Used in this class to determine how much damage you've taken and keep the bar's UI accurate.
-    private int DamageOverTime = 1; // Bleeding out mechanic.
-
+    [SerializeField] private int DamageOverTime = 1; // Bleeding out mechanic.
+    private bool isBleeding = true; //True if health should be lost over time
     #endregion
+
 
     void Start() // Start is called before the first frame update
     {     
         currentHealth = maxHealth; // Starts the game and has the player at maximum health.
         healthBar.SetMaxHealth(maxHealth); // Starts the game with a full health bar.
-        Debug.Log($"{maxHealth}, {currentHealth}");
         StartCoroutine(BleedOut()); // A coroutine that will make the player take 1 damage every second.
     }
 
@@ -45,7 +44,8 @@ public class PlayerHealth : MonoBehaviour
         while (currentHealth > 0) // While the player's health is above 0...
         {
             yield return new WaitForSeconds(delayBetweenDecrements); //This delays the apporopriate amount of time AND pauses when the game pauses
-            currentHealth -= 1; // Reduces the player's health by 1.
+            yield return new WaitUntil(() => isBleeding); //Pauses if not bleeding, like if when a puzzle is open
+            currentHealth -= DamageOverTime; // Reduces the player's health by Damage over time.
             healthBar.SetHealth(currentHealth); // Keeps the health bar's filling accurate
         }
     }
@@ -80,6 +80,10 @@ public class PlayerHealth : MonoBehaviour
         Cursor.visible = true; // Makes the cursor visible.
         Cursor.lockState = CursorLockMode.None; // Allows the player to move their cursor around and click freely.
     }
-}
 
+    public void SetBleeding(bool isBleeding)
+    {
+        this.isBleeding = isBleeding;
+    }
+}
 }
