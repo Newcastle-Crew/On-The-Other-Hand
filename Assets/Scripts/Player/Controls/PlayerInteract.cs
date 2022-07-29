@@ -7,25 +7,37 @@ public class PlayerInteract : MonoBehaviour
     #region Dialogue Variables
     
     [SerializeField] private DialogueUI dialogueUI; // Will be used to only show UI when the player is close to a dialogue object.
-
+    [SerializeField] private float rayLength = 2;
     public DialogueUI DialogueUI => dialogueUI;
 
     public IInteractable Interactable { get; set; } // Code for determining if an object can be interacted with.
     #endregion
 
     private bool somethingOpen; // A bool to check if 'something' (an 'are you sure' box or intercom box) has opened.
+    private RaycastHit hit;
+    private GameObject hitObject = null;
 
     private void Update() // This code runs during every frame.
-    {   
-        somethingOpen = dialogueUI.IsOpen; // Stops the player from spamming extra dialogue boxes while the dialogue box is open.
-    }
-
-    private void OnTriggerStay(Collider other) // When the player stands in an object's trigger box...
     {
-        if (Input.GetKeyDown(KeyCode.E) && somethingOpen == false) // and if the player presses E while a dialogue box is not currently open... 
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        if(Physics.Raycast(transform.position, fwd, out hit, rayLength))
         {
-            Interactable?.Interact(player:this); // and the object can be interacted with, interact with it.
+            Interactable = hit.collider.GetComponent<IInteractable>();
+            Debug.Log(Interactable);
         }
+        else
+            Interactable = null;
+
+        TryInteractDialogue();
     }
 
+    private bool TryInteractDialogue()
+    {
+        if(Interactable == null) return false;
+        if(dialogueUI.IsOpen) return false;
+        if(!Input.GetKeyDown(KeyCode.E)) return false;
+        Interactable?.Interact(player:this); // and the object can be interacted with, interact with it.
+        return true;
+    }
 }

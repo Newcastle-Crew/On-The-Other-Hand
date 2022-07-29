@@ -2978,9 +2978,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMixer: {fileID: 24100000, guid: 371b24fbc1dd6a349ae38877a4baa38b, type: 2}
   SFXMixer: {fileID: 24100000, guid: 68dafcc5531f69a4bbf42fe2da2c45ce, type: 2}
-  musicSlider: {fileID: 5233133531554018771}
+  musicSlider: {fileID: 5233133530343923889}
   SFXSlider: {fileID: 5233133530843045603}
-  mouseSensSlider: {fileID: 5233133530343923889}
+  mouseSensSlider: {fileID: 5233133531554018771}
 --- !u!1 &5233133530491725670
 GameObject:
   m_ObjectHideFlags: 0

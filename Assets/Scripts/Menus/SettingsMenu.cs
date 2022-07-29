@@ -12,28 +12,18 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider musicSlider; // The slider that controls music volume.
     [SerializeField] private Slider SFXSlider; // The slider that controls sound effect volume.
     [SerializeField] private Slider mouseSensSlider; //The slider that controls mouse sensitivity
-
-    public static float mouseSens;
-    private float mouseSensFactor = 10f; //Chosen by using the default value of the FirstPersonAIO script
-    public const string musicString = "musicVolume";
-    public const string sfxString = "SFXVolume";
-    public const string mouseString = "mouseSens";
-    private const float defaultValue = 0.5f; //Used as default value if the player prefs key isn't found
-
     public static event Action<float> OnSensitivityChange;
+    private string musicString => GameSettings.musicString;
+    private string sfxString => GameSettings.sfxString;
+    private string mouseString => GameSettings.mouseString;
 
 
     private void Awake()
     {
         //Initialize settings
-        musicSlider.value = PlayerPrefs.GetFloat(musicString, defaultValue);
-        SetMusicVolume(musicSlider.value);
-
-        SFXSlider.value = PlayerPrefs.GetFloat(sfxString, defaultValue);
-        SetSFXVolume(SFXSlider.value);
-
-        mouseSensSlider.value = PlayerPrefs.GetFloat(mouseString, defaultValue);
-        SetMouseSens(mouseSensSlider.value);
+        musicSlider.value = GameSettings.GetMusicVolume();
+        SFXSlider.value = GameSettings.GetSFXVolume();
+        mouseSensSlider.value = GameSettings.GetMouseSense();
     }
 
     public void SetMusicVolume(float musicVol)
@@ -57,13 +47,12 @@ public class SettingsMenu : MonoBehaviour
     public void SetMouseSens(float sens)
     {
         SavePlayerPref(mouseString, sens);
-        mouseSens = sens * mouseSensFactor;
-        OnSensitivityChange?.Invoke(mouseSens);
+        OnSensitivityChange?.Invoke(sens * GameSettings.mouseSensFactor);
     }
 
     private void SavePlayerPref(string key, float value)
     {
-        if(PlayerPrefs.GetFloat(key, defaultValue) == value) return;
+        if(PlayerPrefs.GetFloat(key, GameSettings.defaultValue) == value) return;
         PlayerPrefs.SetFloat(key, value);
         PlayerPrefs.Save();
     }

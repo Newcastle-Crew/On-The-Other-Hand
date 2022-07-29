@@ -17,6 +17,9 @@ public class FirstPersonAIO : MonoBehaviour {
 
     #region Input Settings
     public bool controllerPauseState = false;
+    public bool puzzleOpen = false;
+    public bool dialogueOpen = false;
+    private bool allowInput => !(controllerPauseState || puzzleOpen || dialogueOpen);
     #endregion
 
     #region Look Settings
@@ -35,7 +38,6 @@ public class FirstPersonAIO : MonoBehaviour {
     public bool enableCameraShake=false;
     internal Vector3 cameraStartingPosition;
     float baseCamFOV;
-    
 
     public bool autoCrosshair = false;
     public bool drawStaminaMeter = true;
@@ -264,7 +266,7 @@ public class FirstPersonAIO : MonoBehaviour {
         }
 
         baseCamFOV = playerCamera.fieldOfView;
-        ChangeMouseSensitivity(SettingsMenu.mouseSens);
+        ChangeMouseSensitivity(GameSettings.GetMouseSense());
         #endregion
 
         #region Movement Settings - Start  
@@ -294,7 +296,7 @@ public class FirstPersonAIO : MonoBehaviour {
 
     private void Update()
     {
-
+        if(!allowInput)  return;
         #region Look Settings - Update
 
             if(enableCameraMovement && !controllerPauseState){
@@ -345,15 +347,16 @@ public class FirstPersonAIO : MonoBehaviour {
     }
 
     private void FixedUpdate(){
-
+        if(!allowInput)
+        {
+            fps_Rigidbody.velocity = Vector3.zero;
+            return;
+        }
         #region Look Settings - FixedUpdate
 
         #endregion
 
         #region Movement Settings - FixedUpdate
-        
-        
-
         Vector3 MoveDirection = Vector3.zero;
         speed = walkByDefault ? isCrouching ? walkSpeedInternal : (walkSpeedInternal) : (walkSpeedInternal);
   
@@ -656,9 +659,6 @@ public class FirstPersonAIO : MonoBehaviour {
         }
         #endregion
     }
-
- 
-
     public IEnumerator CameraShake(float Duration, float Magnitude){
         float elapsed =0;
         while(elapsed<Duration && enableCameraShake){
@@ -676,12 +676,10 @@ public class FirstPersonAIO : MonoBehaviour {
         enableCameraMovement = !enableCameraMovement;
     }
 
-
     private void ChangeMouseSensitivity(float sense)
     {
         mouseSensitivity = sense;
     }
-
 
     float SlopeCheck(){
         
@@ -690,8 +688,6 @@ public class FirstPersonAIO : MonoBehaviour {
             return new AnimationCurve(new Keyframe(-90.0f, 1.0f), new Keyframe(0.0f, 1.0f), new Keyframe(advanced.maxSlopeAngle+15, 0f),new Keyframe(advanced.maxWallShear, 0.0f),new Keyframe(advanced.maxWallShear+0.1f, 1.0f),new Keyframe(90, 1.0f)){preWrapMode = WrapMode.Clamp, postWrapMode = WrapMode.ClampForever}.Evaluate(advanced.lastKnownSlopeAngle);
           
     }
-
-
 
     private void OnCollisionEnter(Collision CollisionData){
         for(int i = 0; i<CollisionData.contactCount; i++){
@@ -742,8 +738,6 @@ public class FirstPersonAIO : MonoBehaviour {
         if(advanced.maxSlopeAngle>0){advanced.curntGroundNormal = Vector3.up; advanced.lastKnownSlopeAngle = 0; advanced.isTouchingWalkable = false; advanced.isTouchingUpright = false;}
 
     }
-
-
 }
 
 #if UNITY_EDITOR

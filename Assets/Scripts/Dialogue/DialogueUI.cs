@@ -12,11 +12,17 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox; // Will be responsible for the box disappearing after dialogue concludes.
     [SerializeField] private TMP_Text textLabel;
+    private FirstPersonAIO playerController;
 
     public bool IsOpen {get; private set;} // Checks if the UI is open - good for popping up in proximity to a speaker.
 
     private ResponseHandler responseHandler;
     private TypewriterEffect typewriterEffect;
+
+    private void Awake()
+    {
+        playerController = FindObjectOfType<FirstPersonAIO>();
+    }
 
     private void Start() // Always gets the typewriter effect so that the words come in slowly.
     {        
@@ -31,9 +37,10 @@ public class DialogueUI : MonoBehaviour
         IsOpen = true;
         dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));
+        playerController.dialogueOpen = true;
     }
 
-        public void AddResponseEvents(ResponseEvent[] responseEvents)
+    public void AddResponseEvents(ResponseEvent[] responseEvents)
     {
         responseHandler.AddResponseEvents(responseEvents);
     }
@@ -87,5 +94,6 @@ public class DialogueUI : MonoBehaviour
         IsOpen = false; // Closes the dialogue box when you've finished reading the text & left-clicked.
         dialogueBox.SetActive(false); // Tells unity to hide the box's UI. 
         textLabel.text = string.Empty; // Removes the text.
+        playerController.dialogueOpen = false;
     }
 }

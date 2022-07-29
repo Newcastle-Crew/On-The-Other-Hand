@@ -1,10 +1,8 @@
 #region 'Using' information
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 #endregion
 
-public class DissectionPuzzle : MonoBehaviour
+public class DissectionPuzzle : Puzzle
 {
     [SerializeField] public Canvas dissectionCanvas; // Requires a canvas to work, so drag the dissection canvas into the inspector.
     [SerializeField] public Canvas regularCanvas; // Requires a canvas to work, so drag the regular UI canvas into the inspector.
@@ -12,8 +10,9 @@ public class DissectionPuzzle : MonoBehaviour
     ItemSlot[] slots;
     bool alreadyWon = false;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         slots = GetComponentsInChildren<ItemSlot>();
     }
 
