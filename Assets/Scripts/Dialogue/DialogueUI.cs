@@ -8,6 +8,10 @@ using TMPro;
 // I used this tutorial --> https://www.youtube.com/playlist?list=PLCGaK2yqfY2IrJYnOnlgdmzWVUFXsRQXA
 // Repo here --> https://github.com/Pattrigue/DialogueSystem
 
+/// <summary>
+/// Dialogue responses are no longer in the game, but deleting the scripts caused more troubles than was worth dealing with.
+/// </summary>
+
 public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox; // Will be responsible for the box disappearing after dialogue concludes.
@@ -27,8 +31,6 @@ public class DialogueUI : MonoBehaviour
     private void Start() // Always gets the typewriter effect so that the words come in slowly.
     {        
         typewriterEffect = GetComponent<TypewriterEffect>();
-        responseHandler = GetComponent<ResponseHandler>();
-
         CloseDialogueBox();
     }
 
@@ -40,7 +42,7 @@ public class DialogueUI : MonoBehaviour
         playerController.dialogueOpen = true;
     }
 
-    public void AddResponseEvents(ResponseEvent[] responseEvents)
+    public void AddResponseEvents(ResponseEvent[] responseEvents) /// See summary.
     {
         responseHandler.AddResponseEvents(responseEvents);
     }
@@ -50,7 +52,9 @@ public class DialogueUI : MonoBehaviour
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
             string dialogue = dialogueObject.Dialogue[i];
-            
+
+            Cursor.visible = true; // Makes the cursor visible if there are buttons for the player to click.
+
             yield return RunTypingEffect(dialogue);
 
             textLabel.text = dialogue;
@@ -61,10 +65,9 @@ public class DialogueUI : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0)); // Requires left click to be pressed before going to the next page of dialogue.
         }
 
-        if (dialogueObject.HasResponses)
+        if (dialogueObject.HasResponses) /// See summary. This script in particular had a lot of issues with the change.
         {
-            Cursor.visible = true; // Makes the cursor visible if there are buttons for the player to click.
-            responseHandler.ShowResponses(dialogueObject.Responses); // If this is a dialogue box with responses, show them.
+            responseHandler.ShowResponses(dialogueObject.Responses); /// Dialogue responses are no longer in the game - redundant
         }
 
         else
@@ -82,7 +85,7 @@ public class DialogueUI : MonoBehaviour
             yield return null;
 
             if(Input.GetKeyDown(KeyCode.Mouse0))
-            {
+            { 
                 typewriterEffect.Stop();
             }
         }

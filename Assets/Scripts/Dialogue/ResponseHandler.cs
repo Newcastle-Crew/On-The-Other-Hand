@@ -7,7 +7,10 @@ using UnityEngine.UI;
 
 // I used this tutorial --> https://www.youtube.com/playlist?list=PLCGaK2yqfY2IrJYnOnlgdmzWVUFXsRQXA
 // Repo here --> https://github.com/Pattrigue/DialogueSystem
-// It'd be great to see the 'yes' and 'no' buttons in the middle of the screen, or at the very least separated.
+
+/// <summary>
+/// Dialogue responses are no longer in the game, but deleting the scripts caused more troubles than was worth dealing with.
+/// </summary>
 
 public class ResponseHandler : MonoBehaviour
 {
@@ -16,17 +19,17 @@ public class ResponseHandler : MonoBehaviour
     [SerializeField] private RectTransform responseContainer;
 
     private DialogueUI dialogueUI;
-    private ResponseEvent[] responseEvents;
+    private ResponseEvent[] responseEvents; /// see summary
 
-    private List<GameObject> tempResponseButtons = new List<GameObject>();
+    private List<GameObject> tempResponseButtons = new List<GameObject>(); /// see summary
 
     private void Start()
     { dialogueUI = GetComponent<DialogueUI>(); }
 
-    public void AddResponseEvents(ResponseEvent[] responseEvents)
+    public void AddResponseEvents(ResponseEvent[] responseEvents)  /// see summary
     { this.responseEvents = responseEvents; }
     
-    public void ShowResponses(Response[] responses)
+    public void ShowResponses(Response[] responses)  /// see summary
     {
         float responseBoxHeight = 0;
 
@@ -49,7 +52,7 @@ public class ResponseHandler : MonoBehaviour
         responseBox.gameObject.SetActive(true);
     }
 
-    private void OnPickedResponse(Response response, int responseIndex)
+    private void OnPickedResponse(Response response, int responseIndex)  /// see summary
     {
         responseBox.gameObject.SetActive(false);
 

@@ -5,6 +5,10 @@ using UnityEngine;
 // I used this tutorial --> https://www.youtube.com/playlist?list=PLCGaK2yqfY2IrJYnOnlgdmzWVUFXsRQXA
 // Repo here --> https://github.com/Pattrigue/DialogueSystem
 
+/// <summary>
+/// Dialogue responses are no longer in the game, but deleting the scripts caused more troubles than was worth dealing with.
+/// </summary>
+
 public class DialogueActivator : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueObject dialogueObject; // Lets you attach text that'll appear when the player interacts with a dialogue object.
@@ -20,7 +24,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     public void Interact(PlayerInteract player) 
     {
-        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>()) // If the dialogue object has choices, shows them.
+        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>()) /// See summary.
         {
             if (responseEvents.DialogueObject == dialogueObject)
             {
